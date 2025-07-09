@@ -44,7 +44,7 @@ const components = {
   AccordionTrigger,
   AccordionContent,
   pre: Pre,
-  code: function Code(props: any) { return React.createElement("code", props); },
+  code: function Code(props: React.ComponentProps<"code">) { return React.createElement("code", props); },
   Note,
   Stepper,
   StepperItem,

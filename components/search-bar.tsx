@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { page_routes, ROUTES, EachRoute } from "@/lib/routes-config";
+import { page_routes, ROUTES } from "@/lib/routes-config";
 import Link from "next/link";
 
 // Fonction pour retrouver le chemin complet d'une page à partir de ROUTES
