@@ -8,6 +8,20 @@ const algolia_props = {
   apiKey: process.env.ALGOLIA_SEARCH_API_KEY!,
 };
 
+export function Logo() {
+  return (
+    <span className="font-bold text-xl text-primary">NebulaBot</span>
+  );
+}
+
+export function NavMenu() {
+  return (
+    <div className="flex items-center gap-3">
+      {/* Ajoute ici des liens ou des boutons de navigation si besoin */}
+    </div>
+  );
+}
+
 export function Navbar() {
   return (
     <nav className="w-full border-b h-16 sticky top-0 z-50 bg-background">

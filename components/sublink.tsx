@@ -30,8 +30,8 @@ export default function SubLink({
     if (path == href || path.includes(href)) setIsOpen(true);
   }, [href, path]);
 
-  const LucideIcon = icon ? (LucideIcons as any)[icon] : null;
-  const ReactIcon = icon ? (ReactIcons as any)[icon] : null;
+  const LucideIcon = icon ? ((LucideIcons as unknown) as Record<string, React.ComponentType<{ className?: string }>>)[icon] : null;
+  const ReactIcon = icon ? ((ReactIcons as unknown) as Record<string, React.ComponentType<{ className?: string }>>)[icon] : null;
   const Icon = LucideIcon || ReactIcon;
 
   const Comp = (
