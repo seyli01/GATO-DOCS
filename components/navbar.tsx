@@ -1,12 +1,7 @@
+"use client";
 import { ModeToggle } from "@/components/theme-toggle";
-import AlgoliaSearch from "./algolia-search";
 import { page_routes } from "@/lib/routes-config";
-
-const algolia_props = {
-  appId: process.env.ALGOLIA_APP_ID!,
-  indexName: process.env.ALGOLIA_INDEX!,
-  apiKey: process.env.ALGOLIA_SEARCH_API_KEY!,
-};
+import SearchBar from "./search-bar";
 
 export function Logo() {
   return (
@@ -35,7 +30,7 @@ export function Navbar() {
           </a>
         </div>
         <div className="flex items-center gap-3">
-          <AlgoliaSearch {...algolia_props} />
+          <SearchBar />
           <ModeToggle />
         </div>
       </div>

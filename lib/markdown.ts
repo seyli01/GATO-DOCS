@@ -10,6 +10,7 @@ import { page_routes, ROUTES } from "./routes-config";
 import { visit } from "unist-util-visit";
 import matter from "gray-matter";
 import { getIconName, hasSupportedExtension } from "./utils";
+import React from "react";
 
 // custom components imports
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -43,6 +44,7 @@ const components = {
   AccordionTrigger,
   AccordionContent,
   pre: Pre,
+  code: function Code(props: any) { return React.createElement("code", props); },
   Note,
   Stepper,
   StepperItem,
