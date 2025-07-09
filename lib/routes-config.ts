@@ -21,17 +21,17 @@ export const ROUTES: EachRoute[] = [
   },
   {
     title: "Security",
-    href: "/security",
+    href: "/Security",
     noLink: true,
     icon: "ShieldIcon",
     items: [
-      { title: "Moderation", href: "/moderation", icon: "ShieldCheckIcon" },
+      { title: "Moderation", href: "/Moderation", icon: "ShieldCheckIcon" },
       { title: "Fakepermissions", href: "/fpermissons", icon: "FingerprintIcon" }
     ],
   },
   {
     title: "Server",
-    href: "/server",
+    href: "/Server",
     noLink: true,
     icon: "Settings",
     items: [
@@ -43,7 +43,7 @@ export const ROUTES: EachRoute[] = [
           { title: "Reactions Roles", href: "/reactions"}
         ],
       },
-      { title: "Messages", href: "/messages", icon: "MessagesSquare",
+      { title: "Messages", href: "/Messages", icon: "MessagesSquare",
         noLink:true, 
         items: [
           { title: "System", href: "/system"}, 
