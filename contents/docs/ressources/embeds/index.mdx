@@ -1,0 +1,131 @@
+---
+title: Embeds
+description: Send beautiful custom messages with Markdown-like embed syntax.
+---
+
+import ImageWithGridBg from "@/components/markdown/image-bg"
+
+## What is it?
+
+Embeds allow you to send rich, styled messages using a special `{embed}` syntax.  
+They support simple messages, title, description, color, images, footers, timestamps and more — perfect for announcements, logs, or onboarding.
+
+## Getting Started
+
+### Structure
+
+Each parameter in the embed is represented by a key-value pair which is separated by a colon. 
+For example, the title parameter will look like `{title: hello {member.mention}}`. 
+The `{member.mention}` is a variable which will be filled in with the user’s mention.
+
+- `{` - begins a parameter.
+
+- `:` - separates parameter from content.
+
+- `::` - separates parameters.
+
+- `}` - ends a parameter.
+
+### Parameters
+
+- `title` - Set a title.
+
+- `desc` - Set a description.
+
+- `color` - Set a color.
+
+- `image` - Set a image (url only).
+
+- `thumbnail` - Set a thumnail (url or valid placeholders).
+
+- `footer` - Set a footer.
+
+- `author` - Set an author.
+
+- `timestamp` - Set a timestamp in the footer for the embed (args is `yes`).
+
+## How to create an embed ? 
+
+Embeds can be created by 2 differents ways. Either directly in the commands which actually support the syntaxe, 
+or create an embed by using the command `embed create` and use it with it name.
+
+<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $embed create <name> (args)
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $embed create welcome {embed}::{desc: Hellow}
+        ```
+      </TabsContent>
+    </Tabs>
+
+<ImageWithGridBg src="/embed1.png" alt="Nebula" size={20} />
+
+You can also add a message linked to your embed by using the key `{message:}` before the `{embed}` key.
+
+<ImageWithGridBg src="/embed2.png" alt="Nebula" size={20} />
+
+### Variables 
+
+You can use dynamic variables in your embeds yo display user/server specific informations. 
+
+```plaintext
+$embed create welcome {message: Hello {member.mention}}::{embed}::{desc: > Welcome in the server. Read the rules.}
+```
+
+<ImageWithGridBg src="/embed3.png" alt="Nebula" size={20} />
+
+This system is also used in Lastfm custom embed. 
+
+## Update an embed
+
+You can use the command `embed update` to update your embed. 
+
+<Note type="info">
+    If you consider using an embed in a command like `stickymessage`, `autoresponder word` or any other command supporting this feature, 
+    use the command `embed create` first and assign the embed to the command. The updating part of the embed is easier this way.
+    If you don't plan to change very often, you can assign the message using the syntax directly. 
+</Note>
+
+The `embed update` command work 2 ways. You can either give the name of the embed and the args (`{embed}::{key1: ...}...`) directly, 
+or run `embed update` with only the name of the embed. 
+
+<ImageWithGridBg src="/embed4.gif" alt="Nebula" size={20} />
+
+or you can use this directly : 
+
+```plaintext
+$embed update welcome {embed}::{desc: > Welcome in the server. Read the rules.}
+```
+
+## More
+
+To check every embed created and existing in your server, you can run the command : 
+
+```plaintext
+$embed list
+```
+
+To delete an embed after using the command `embed create`, use the command : 
+
+```plaintext
+$embed delete welcome
+```
+
+You can also clear all the embeds of the server running the command : 
+
+```plaintext
+$embed clear
+```
+
+<Note type="warning">
+    This action can't be undone and all embed linked to external command won"t work anymore, and will need to ne updated.
+</Note>
+

@@ -1,0 +1,95 @@
+---
+title: Autoresponder
+description: Automatically respond to trigger messages.
+---
+
+import ImageWithGridBg from "@/components/markdown/image-bg"
+
+## What is it ? 
+
+Autoresponder are set to responder to a trigger word. 
+
+## Getting Started
+
+To setup an autoresponder, you need to setup a trigger, run : 
+
+<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $autoresponder add <word> <reply>
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $autoresponder add cat gato is the best
+        ```
+      </TabsContent>
+    </Tabs>
+
+<Note type="warning">
+    Autoresponder doesn't accept embebbed reply.
+</Note>
+
+The `welcome`, `goodbye` and `booster` command have the subcommand : 
+
+- `toggle`- Enable the system. 
+
+- `channel`- Set up the channels where the message will be send. 
+
+- `preview`- Show the configured message for a given channel.
+
+- `status`- Gives information on every messages configured in the server. 
+
+- `duration`- Set up a duration for a given message channel. 
+
+<Note type="info">
+    You can add embedded message with the subcommand `channel`. You need to create a custom embed using `/embed create`
+    and run the same subcommand `channel` adding embed after the channel and the name of the embed. 
+</Note>
+
+<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $welcome channel set <channel> embed <embed_name>
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $welcome channel set #welcome embed Welcome
+        ```
+      </TabsContent>
+    </Tabs>
+
+
+To remove a message from a channel : 
+
+<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $welcome channel remove <channel>
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $welcome channel remove #welcome
+        ```
+      </TabsContent>
+    </Tabs>
+
+
+<Note type="warning">
+    To update a message, run again the `channel set` command. 
+</Note>
+

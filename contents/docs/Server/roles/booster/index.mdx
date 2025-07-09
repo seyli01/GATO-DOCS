@@ -1,0 +1,160 @@
+---
+title: Booster Roles
+description: Reward your members for boosting your server with roles for themselves.
+---
+
+import ImageWithGridBg from "@/components/markdown/image-bg"
+
+## What is it ? 
+
+Booster roles are unique roles that are given to members which have boosted your server. 
+These roles can be fully customized by the members themselves.
+
+## Getting Started
+
+Gato does have a command base for setting up a base role. Base role will create new booster roles below the base role.
+If no base role is setup, the new role will be created at the very bottom of the server.
+
+<Note type="warning">
+    For management reasons, it better to setup a base role. 
+</Note>
+
+- How to setup a base role : 
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $boosterrole base set <role>
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $boosterrole base set @BoosterRoles
+        ```
+      </TabsContent>
+    </Tabs>
+
+- How to create a boosterrole : 
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $boosterrole create <role name>, <color> 
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $boosterrole create Genius, red
+        ```
+      </TabsContent>
+    </Tabs>
+
+    <Note type="warning">
+        Color can be an HEX color. 
+    </Note>
+
+
+- Customise your boosterrole :
+
+    <Accordion type="single" collapsible className="w-full"> 
+            <AccordionItem value="item-1">
+                <AccordionTrigger>Rename your boosterrole</AccordionTrigger>
+                <AccordionContent>
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    $boosterrole rename <role>, <name>
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    $boosterole rename Genuis, ysl
+                    ```
+                    </TabsContent>
+                </Tabs>
+                </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2">
+                <AccordionTrigger>Change the icon</AccordionTrigger>
+                <AccordionContent>
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    $boosterrole icon <role> <icon>
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    $boosterrole icon ysl 🐍 
+                    ```
+                    </TabsContent>
+                    <Note type="warning">
+                        The selected icon can also be a custom server emoji. 
+                    </Note>
+                </Tabs>
+                </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3">
+                <AccordionTrigger>Change the color</AccordionTrigger>
+                <AccordionContent>
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    $boosterrole color <role>, <color>
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    $boosterrole icon ysl, green
+                    ```
+                    </TabsContent>
+                </Tabs>
+                </AccordionContent>
+            </AccordionItem>
+        </Accordion>
+
+## Booster Awards 
+
+Grant a role whenever a member of your server boost it. You can use 
+`booster award` commannd to set it up. 
+
+<Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    $booster award add <roles>
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    $booster award add rich
+                    ```
+                    </TabsContent>
+                </Tabs>
+
+To remove the booster role, use the command `booster award remove`. If you want to see them, do `booster award list`

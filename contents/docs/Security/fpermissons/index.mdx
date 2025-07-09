@@ -1,0 +1,184 @@
+---
+title: Fake Permissions
+description: Enable moderator in a server to use needed permissions commands without giving native discord permissions.
+---
+
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+
+<Note type="warning">
+  Fake permissions only work through the bot. Only the Server Owner can use this command.
+</Note>
+
+### Why fakepermissions ?
+
+Fake permissions negate the possibility of a rogue moderator using a script which floods the Discord API and mass bans all members, or any other harmful action. It’s a security measure which ensures that your server can’t be nuked whatsoever.
+
+### How does it work ? 
+
+When a moderator is given fake permissions, such as `ban_members`, they will be able to use the ban command with gato, but they won’t be able to use the native **Discord ban feature**.
+
+## Examples
+
+<Accordion type="single" collapsible className="w-full"> 
+        <AccordionItem value="item-1">
+            <AccordionTrigger>Add fakepermissions to a role</AccordionTrigger>
+            <AccordionContent>
+            <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                <TabsList>
+                <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                <TabsTrigger value="example">Exemple</TabsTrigger>
+                </TabsList>
+                <TabsContent value="syntax">
+                ```plaintext
+                $fakepermissions add <@role> <permissions>
+                ```
+                </TabsContent>
+                <TabsContent value="example">
+                ```plaintext
+                $fakepermissions add @mod ban_members
+                ```
+                </TabsContent>
+
+                <Note type="warning">
+                You can add more than one permissions to a role.
+                </Note>
+            </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-2">
+            <AccordionTrigger>Add fakepermissions to a member</AccordionTrigger>
+            <AccordionContent>
+            <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                <TabsList>
+                <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                <TabsTrigger value="example">Exemple</TabsTrigger>
+                </TabsList>
+                <TabsContent value="syntax">
+                ```plaintext
+                $fakepermissions add <@user> <permissions>
+                ```
+                </TabsContent>
+                <TabsContent value="example">
+                ```plaintext
+                $fakepermissions add @user ban_members
+                ```
+                </TabsContent>
+
+                <Note type="warning">
+                You can add more than one permissions to a member.
+                </Note>
+            </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-3">
+            <AccordionTrigger>Remove fakepermissions from a role</AccordionTrigger>
+            <AccordionContent>
+            <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                <TabsList>
+                <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                <TabsTrigger value="example">Exemple</TabsTrigger>
+                </TabsList>
+                <TabsContent value="syntax">
+                ```plaintext
+                $fakepermissions remove <@role> [permissions]
+                ```
+                </TabsContent>
+                <TabsContent value="example">
+                ```plaintext
+                $fakepermissions remove @mod [ban_members]
+                ```
+                </TabsContent>
+
+                <Note type="warning">
+                The `ban_members` or any other permissions are optional. If no permissions is given, 
+                the bot will automatically delete every permissions for this role.
+                </Note>
+            </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-4">
+            <AccordionTrigger>Remove fakepermissions from a member</AccordionTrigger>
+            <AccordionContent>
+            <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                <TabsList>
+                <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                <TabsTrigger value="example">Exemple</TabsTrigger>
+                </TabsList>
+                <TabsContent value="syntax">
+                ```plaintext
+                $fakepermissions remove <@user> [permissions]
+                ```
+                </TabsContent>
+                <TabsContent value="example">
+                ```plaintext
+                $fakepermissions remove @user [ban_members]
+                ```
+                </TabsContent>
+
+                <Note type="warning">
+                The `ban_members` or any other permissions are optional. If no permissions is given, 
+                the bot will automatically delete every permissions for this member.
+                </Note>
+            </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-5">
+            <AccordionTrigger>Remove every fakepermissions in the server</AccordionTrigger>
+            <AccordionContent>
+            ```plaintext
+            $fakepermissions clear
+            ```
+            </AccordionContent>
+        </AccordionItem>
+    </Accordion>
+
+## How to manage it ? 
+
+Every permissions is listed below, with a recommended configuration for each roles.
+
+    <Tabs defaultValue="Moderator" className="pt-3 pb-0.7">
+    <TabsList>
+      <TabsTrigger value="Moderator">Moderator</TabsTrigger>
+      <TabsTrigger value="Admin">Admin</TabsTrigger>
+      <TabsTrigger value="Manager">Manager</TabsTrigger>
+    </TabsList>
+    <TabsContent value="Moderator">
+      - `manage_message` - Allow the member to delete messages.
+      - `moderate_members` - Allow the member to performe mute commands.
+      - `manage_nickname` - Allow the member to change nickname.
+      - `kick_members` - Allow the member kick members.
+    </TabsContent>
+
+    <TabsContent value="Admin">
+      - `manage_message` - Allow the member to delete messages.
+      - `moderate_members` - Allow the member to performe mute commands.
+      - `manage_nickname` - Allow the member to change nickname.
+      - `kick_members` - Allow the member kick members.
+      - `manage_roles` - Allow the member to manage roles.
+      - `ban_members` - Allow the member to ban members.
+    </TabsContent>
+
+    <TabsContent value="Manager">
+      - `administrator` - Allow the member to use every commands.
+    </TabsContent>
+    
+    </Tabs>
+
+## Explore Further
+
+Fakepermissions system isn't the only system for permissions handled by gato. You can also manage unique permissions on the bot 
+as `trusted owner` and `staff nuke`. Syntax is exactly the same as fakepermissions.
+
+<Note type="warning">
+  Trusted Owner and Staff nuke are very important and should not be given to anyone untrusted. Trusted Owner has access to owner permissions for the bot.
+  On the other hand staff nuke give access to the antinuke feature of gato. 
+</Note>
+
+
+
+
+

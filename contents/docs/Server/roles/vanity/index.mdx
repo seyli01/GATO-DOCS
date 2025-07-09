@@ -1,0 +1,67 @@
+---
+title: Vanity Roles
+description: Reward your members for advertising your server in their status.
+---
+
+<Note type="warning">
+    To use this feature, your server should be level 3 with 14 boosts.
+</Note>
+
+## How does it work ? 
+
+- To configure properly the vanity feature , run :
+
+  <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $vanity reward <text>, <roles>
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $vanity reward gato, cool
+        ```
+      </TabsContent>
+  </Tabs>
+
+- You don't want to remove it to all members ? Add an exempt role : 
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $vanity exempt <roles>
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $vanity exempt Mod
+        ```
+      </TabsContent>
+    </Tabs>
+
+    - Remove the exempt role by doing : 
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $vanity exempt remove [roles]
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $vanity exempt remove Mod
+        ```
+      </TabsContent>
+    </Tabs>

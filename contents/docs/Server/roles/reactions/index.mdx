@@ -1,0 +1,69 @@
+---
+title: Reactions Roles
+description: Allow your members to assign themselves roles by reacting to a message.
+---
+
+import ImageWithGridBg from "@/components/markdown/image-bg"
+
+## What is it ? 
+
+Reaction roles are roles that are assigned to members when they react to a message. 
+This can be useful for letting members choose unique roles or as a way to verify themselves.
+
+## Getting Started
+
+You can create multiple reaction roles for a single message with a different emoji for each role.
+
+<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $reactrole add <message_id>, <role>, <reaction>
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $reactrole add 1390404101707268337, members, ✅ 
+        ```
+      </TabsContent>
+    </Tabs>
+
+<ImageWithGridBg src="/rrshow1.gif" alt="Nebula" size={20} />
+
+<Note type="warning">
+  To perfom the command, you need to execute the command in the same channel where the message is located.
+</Note>
+
+
+To remove it, run : 
+
+<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $reactrole remove <message_id>, <reaction>
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $reactrole remove 1390404101707268337, ✅ 
+        ```
+      </TabsContent>
+    </Tabs>
+
+To remove all reactions from a message, run : 
+
+```plaintext
+$reactrole remove all
+```
+
+<Note type="warning">
+    This action will remove every reactions in the message. 
+</Note>
+

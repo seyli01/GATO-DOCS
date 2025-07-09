@@ -1,0 +1,35 @@
+---
+title: Lastfm
+description: Share your music listening activity with your friends.
+---
+
+import ImageWithGridBg from "@/components/markdown/image-bg"
+
+## What is it ? 
+
+    Last.fm is a website which tracks the music you listen to and provides statistics based on your listening history.
+    You can register for a Last.fm account by clicking [here](https://www.last.fm/join).
+
+    ## Getting Started
+
+    You need to first create a Lastfm account and link it to your spotify account. Enable the scrobbling feature as show below.
+
+    <ImageWithGridBg src="/lftuto.png" alt="lf" size={20} />
+
+    After creating an account and enabled the scrobbling feature, link your lastfm account to gato by running : 
+
+    ```plaintext
+    $lf login
+    ```
+    <ImageWithGridBg src="/lfdm.png" alt="lf" size={20} />
+
+To revoke access to your Lastfm account from gato, use : 
+
+```plaintext
+$lf logout
+```
+
+<Note type="warning">
+    Lastfm can be down. If any error occur, make sure to first check the status of Lastfm.
+</Note>
+

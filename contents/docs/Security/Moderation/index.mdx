@@ -1,0 +1,172 @@
+---
+title: Quick Start Guide
+---
+
+This section is for setting up the bot for moderation commands.
+
+<Note type="warning">
+  The role hierarchy of the bot is very important. Place gato role on top of all managable roles.
+</Note>
+
+## Jail configuration
+
+- To configure properly feature to make sure the jail command will work, run :
+
+  ```plaintext
+  $jail set
+  ```
+
+- This will create a jail role and channel. Now you can run the command : 
+
+  <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+      <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+      <TabsTrigger value="example">Exemple</TabsTrigger>
+    </TabsList>
+    <TabsContent value="syntax">
+      ```plaintext
+      $jail @user [duration] [reason]
+      ```
+    </TabsContent>
+    <TabsContent value="example">
+      ```plaintext
+      $jail @user 10m spamming in chat
+      ```
+    </TabsContent>
+  </Tabs>
+
+- The default duration of the jail command is 4 weeks. To change this duration, run : 
+
+  <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+      <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+      <TabsTrigger value="example">Exemple</TabsTrigger>
+    </TabsList>
+    <TabsContent value="syntax">
+      ```plaintext
+      $settings jail time <duration>
+      ```
+    </TabsContent>
+    <TabsContent value="example">
+      ```plaintext
+      $settings jail time 10m
+      ```
+    </TabsContent>
+  </Tabs>
+
+
+## General Moderation Command
+
+A bunch of other moderation commands are supported by gato as `mute`, `kick`, `imute`, `rmute`, `warn`, `ban`
+
+-   Mute commands like `imute`, `rmute` are unable to work on administrator members. Mute command are enable to work using the 
+    timeout feature of discord API by stripping their admin role for the mute time duration and automatically restored at the end of it.
+    Timeout can't exceed 28 days. You can however change the default time of the mute (1 hour default).
+
+- To change the default duration of the mute command, run : 
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+      <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+      <TabsTrigger value="example">Exemple</TabsTrigger>
+    </TabsList>
+    <TabsContent value="syntax">
+      ```plaintext
+      $settings mute time <duration>
+      ```
+    </TabsContent>
+    <TabsContent value="example">
+      ```plaintext
+      $settings mute time 10m
+      ```
+    </TabsContent>
+    </Tabs>
+
+    <Note type="warning">
+      As said below, the duration can't be changed to a value greater to 28 days. 
+    </Note>
+
+## Explore Further
+
+Every commands named here : `jail`, `mute`, `kick`, `imute`, `rmute`, `warn`, `ban` can be customized. The default reply are embedded replies with detailled 
+info like the duration, the reason, the author of the command, target user. 
+
+- To customize the embed, run : 
+
+  <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+      <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+      <TabsTrigger value="example">Exemple</TabsTrigger>
+    </TabsList>
+    <TabsContent value="syntax">
+      ```plaintext
+      $invoke <target_command> message <custom_message>
+      ```
+    </TabsContent>
+    <TabsContent value="example">
+      ```plaintext
+      $invoke jail message {member.mention} has been jailed for {reason}
+      ```
+    </TabsContent>
+  </Tabs>
+
+  <Note type="warning">
+    If you don't want an embedded reply, add `${ne}` at the beggining of your custom message. 
+  </Note>
+
+  <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+      <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+      <TabsTrigger value="example">Exemple</TabsTrigger>
+    </TabsList>
+    <TabsContent value="syntax">
+      ```plaintext
+      $invoke <target_command> message ${ne} <custom_message>
+      ```
+    </TabsContent>
+    <TabsContent value="example">
+      ```plaintext
+      $invoke jail message ${ne} {member.mention} has been jailed for {reason}
+      ```
+    </TabsContent>
+  </Tabs>
+
+- To preview your message, run : 
+
+  <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+      <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+      <TabsTrigger value="example">Exemple</TabsTrigger>
+    </TabsList>
+    <TabsContent value="syntax">
+      ```plaintext
+      $invoke <target_command> message preview
+      ```
+    </TabsContent>
+    <TabsContent value="example">
+      ```plaintext
+      $invoke jail message preview
+      ```
+    </TabsContent>
+  </Tabs>
+
+- Want to come back to the default message ? No worries, run : 
+
+  <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+      <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+      <TabsTrigger value="example">Exemple</TabsTrigger>
+    </TabsList>
+    <TabsContent value="syntax">
+      ```plaintext
+      $invoke <target_command> message remove
+      ```
+    </TabsContent>
+    <TabsContent value="example">
+      ```plaintext
+      $invoke jail message remove
+      ```
+    </TabsContent>
+  </Tabs>
+  
+

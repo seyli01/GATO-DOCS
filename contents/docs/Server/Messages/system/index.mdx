@@ -1,0 +1,106 @@
+---
+title: System Message
+description: Automatically send messages when certain member events occur.
+---
+
+import ImageWithGridBg from "@/components/markdown/image-bg"
+
+## What is it ? 
+
+Discord Provide it own messages in 3 situations, and gato supports all of three : 
+
+`welcome` - Dispatched whenever a user joins the server.
+
+`goodbye` - Dispatched whenever a user leaves the server.
+
+`booster` - Dispatched whenever a user boosts the server.
+
+## Getting Started
+
+How to set up a system message ? All the `welcome`, `goodbye`, `booster` have the same syxtax, and subcommand. 
+
+<Note type="warning">
+    To use the system message command, you need to enable it by using the subcommand `toggle`. 
+    Using `welcome toggle` won't enable the `goodbye` or `booster` message's system. 
+</Note>
+
+<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $<command name> <subcommand> (args)
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $welcome channel set #welcome Welcome to our server {member.mention}
+        ```
+      </TabsContent>
+    </Tabs>
+
+<Note type="warning">
+    Message is optional in `channel` command. If no message is given the default one is used. 
+</Note>
+
+The `welcome`, `goodbye` and `booster` command have the subcommand : 
+
+- `toggle`- Enable the system. 
+
+- `channel`- Set up the channels where the message will be send. 
+
+- `preview`- Show the configured message for a given channel.
+
+- `status`- Gives information on every messages configured in the server. 
+
+- `duration`- Set up a duration for a given message channel. 
+
+<Note type="info">
+    You can add embedded message with the subcommand `channel`. You need to create a custom embed using `/embed create`
+    and run the same subcommand `channel` adding embed after the channel and the name of the embed. 
+</Note>
+
+<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $welcome channel set <channel> embed <embed_name>
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $welcome channel set #welcome embed Welcome
+        ```
+      </TabsContent>
+    </Tabs>
+
+
+To remove a message from a channel : 
+
+<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $welcome channel remove <channel>
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $welcome channel remove #welcome
+        ```
+      </TabsContent>
+    </Tabs>
+
+
+<Note type="warning">
+    To update a message, run again the `channel set` command. 
+</Note>
+
