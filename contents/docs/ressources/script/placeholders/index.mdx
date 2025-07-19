@@ -1,0 +1,68 @@
+# Placeholders
+
+**Placeholders** are special keywords wrapped in curly braces `{}` that the bot **automatically replaces** with dynamic values.  
+
+They allow you to **personalize messages**, embeds, and responses based on the context (user, server, date, etc.).
+
+All placeholders are available here :
+
+<Tabs defaultValue="Member" className="pt-3 pb-0.7">
+  <TabsList>
+    <TabsTrigger value="Member">Member</TabsTrigger>
+    <TabsTrigger value="Server">Server</TabsTrigger>
+    <TabsTrigger value="Moderation">Moderation</TabsTrigger>
+    <TabsTrigger value="LastFM">Last.fm</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="Member">
+    - `member.avatar` → Member’s avatar URL  
+    - `member.mention` → Mention the member (`@User`)  
+    - `member.joined_at` → Member join date (YYYY-MM-DD HH:MM:SS)  
+    - `member.name` → Member username  
+    - `member.display_name` → Server nickname or username  
+    - `member.discriminator` → The #1234 tag  
+    - `member.id` → Member ID  
+    - `member.bot` → Whether the member is a bot  
+    - `member.pending` → Pending membership flag  
+    - `member.premium_since` → Date when they boosted the server  
+    - `member.status` → Online status (online, idle, dnd…)  
+    - `member.raw_status` → Raw Discord status  
+    - `member.created_at` → Account creation date  
+    - `member.top_role` → Top role name  
+  </TabsContent>
+
+  <TabsContent value="Server">
+    - `server.avatar` → Server icon URL  
+    - `server.member_count` → Total number of members  
+    - `server.name` → Server name  
+    - `server.id` → Server ID  
+    - `server.owner_id` → Server owner’s user ID  
+    - `server.description` → Server description (if any)  
+    - `server.max_members` → Max allowed members  
+    - `server.max_presences` → Max allowed presences  
+    - `server.premium_tier` → Server boost level  
+    - `server.premium_subscription_count` → Number of server boosts  
+    - `server.preferred_locale` → Default locale (e.g. `en-US`)  
+    - `server.verification_level` → Verification level required  
+    - `server.created_at` → Server creation date  
+  </TabsContent>
+
+  <TabsContent value="Moderation">
+    - `duration` → Duration of the action
+    - `reason` → Reason for the action
+    - `total_warn` → Total number of warnings  
+    - `author.mention` → Mention the command executor  
+  </TabsContent>
+
+  <TabsContent value="LastFM">
+    - `track.artist` → Artist name **with a clickable Last.fm link**  
+    - `track.artist.raw` → Artist name as plain text  
+    - `track.title` → Track title **with a clickable Last.fm link**  
+    - `track.title.raw` → Track title as plain text  
+    - `track.album` → Album name **with a clickable Last.fm link**  
+    - `track.album.raw` → Album name as plain text  
+    - `track.cover` → Album cover image URL  
+    - `scrobbles` → Total scrobbles for the user  
+    - `playcount` → Playcount for the current track  
+  </TabsContent>
+</Tabs>

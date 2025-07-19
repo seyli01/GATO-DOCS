@@ -33,3 +33,145 @@ $lf logout
     Lastfm can be down. If any error occur, make sure to first check the status of Lastfm.
 </Note>
 
+## Custom FM Embeds
+
+Custom embed for lastfm can be create via the command `fm embed create` and is independant in each server. 
+
+The default embed can also be customized using the customization command to change the color of the embed, custom reactions for 
+the server but also for the user. No subscription needed.
+
+### Customize the default embed 
+
+You can customize your embed color using the command : 
+
+<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $fm color <color>
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $fm color #2d2c2e 
+        ```
+      </TabsContent>
+    </Tabs>
+
+- Before :
+
+    <ImageWithGridBg src="/fmembed.png" alt="lf" size={20} />
+
+- After : 
+
+    <ImageWithGridBg src="/fmembed2.png" alt="lf" size={20} />
+
+<Note type="info">
+    You can use the word `dominant` (the previous screenshots use the dominant keyword) that will give to your embed the 
+    dominant color of the cover of the song you listening to.
+    This can also be used in the `fm embed create` command. 
+</Note>
+
+### Customize your Lastfm embed's reactions.
+
+The default reactions for embeds are 🔥, 🗑️. It's also the default reactions for the guild as well. 
+
+If you want to change the default reaction of the server, run : 
+
+<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $fm reactions <emoji1>, <emoji 2>
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $fm reactions 😀, 😒
+        ```
+      </TabsContent>
+    </Tabs>
+
+This change the default reactions of the server. If you don't like it, you can use the custom reactions for yourself : 
+
+<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $fm cr <emoji1>, <emoji 2>
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $fm cr 😀, 😒
+        ```
+      </TabsContent>
+    </Tabs>
+
+<ImageWithGridBg src="/fm embed3.png" alt="lf" size={20} />
+
+<Note type="info">
+    The custom user's reactions will be displayed and will always be dominant even if the server has set custom reactions.
+</Note>
+
+### Create your LastFm embed 
+
+<Note type="warning">
+    You need a tier one subscription to use this feature.
+</Note>
+
+To create your custom Lastfm embed, you need to read the **[embed](/docs/ressources/embeds)** documentation part to understand 
+how to create an embed. Lastfm embed creation use the same system. Only placeholders are different and only usable in a 
+lastfm context.
+
+<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+    <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+      </TabsList>
+      <TabsContent value="syntax">
+        ```plaintext
+        $fm embed create (args)
+        ```
+      </TabsContent>
+      <TabsContent value="example">
+        ```plaintext
+        $fm embed create {embed}::{desc: Now listening to {track.artist}}::{footer: Playcount : {playcount}}
+        ```
+      </TabsContent>
+    </Tabs>
+
+You can of course `modify`, `preview` and `delete` your embed like the `embed` set of commands. 
+
+<Note type="info">
+    As said previously, you can use the keyword `dominant` in your custom embed. When creating the embed, 
+    type `...{color: {dominant}}`. 
+</Note>
+
+Example : 
+
+```plaintext
+$embed create {embed}::{desc: Now listening to {track.artist}}::{footer: Playcount : {playcount}}::{thumbnail: {track.cover}}::{color: {dominant}}
+```
+
+This will use the dominant color of the cover. You need to set a thumbnail to make it work. Otherwise the default color 
+will be used.
+
+## Scrobbling music with the bot
+
+By using gato, and linking your Lastfm account to the bot. You can scrobble your music through the bot by using the 
+play command. By default, this feature is enabled. you can however turn it off if you don't need/want it.
+
+```plaintext
+$fm playsync on/off/status 
+```
+

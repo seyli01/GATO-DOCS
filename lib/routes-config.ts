@@ -68,6 +68,11 @@ export const ROUTES: EachRoute[] = [
     icon: "Lightbulb",
     items: [
       { title: "Embeds", href: "/embeds", icon: "Code", tag: "new" },
+      { title: "Script", href: "/script", icon: "Terminal", noLink: true,
+        items :[
+          { title: "Placeholders", href: "/placeholders"},
+        ], 
+      },
     ],
   },
 ];
