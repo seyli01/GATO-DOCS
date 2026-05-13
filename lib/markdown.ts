@@ -168,7 +168,7 @@ export async function getAllChilds(pathString: string) {
       const raw = await fs.readFile(totalPath, "utf-8");
       return {
         ...justGetFrontmatterFromMD<BaseMdxFrontmatter>(raw),
-        href: `/docs${prevHref}${it.href}`,
+        href: `${prevHref}${it.href}`,
       };
     })
   );

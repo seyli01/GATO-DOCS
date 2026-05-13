@@ -55,7 +55,7 @@ export default function SearchBar() {
             return (
               <Link
                 key={route.href}
-                href={route.href.startsWith("/docs") ? route.href : `/docs${route.href}`}
+                href={route.href}
                 className="block px-3 py-2 text-sm hover:bg-blue-100 dark:hover:bg-neutral-800 transition-colors"
                 onClick={() => setShowResults(false)}
               >

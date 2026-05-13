@@ -1,14 +1,23 @@
 import React from "react";
+import Image from "./image";
+
+interface ImageWithGridBgProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  size?: number;
+  maxWidth?: string;
+}
 
 export default function ImageWithGridBg({
   className = "",
   style = {},
+  size = 8, // Padding (closer to edges if smaller)
+  maxWidth = "max-w-3xl",
+  alt = "Documentation image",
   ...props
-}: React.ImgHTMLAttributes<HTMLImageElement>) {
+}: ImageWithGridBgProps) {
   return (
     <div
-      className={`relative mx-auto my-12 max-w-3xl w-full rounded-3xl overflow-hidden shadow-xl border border-neutral-200 dark:border-neutral-700 bg-white/80 dark:bg-neutral-900/80 p-8 flex items-center justify-center ${className}`}
-      style={{ ...style }}
+      className={`relative mx-auto my-6 ${maxWidth} w-full rounded-3xl overflow-hidden shadow-xl border border-neutral-200 dark:border-neutral-700 bg-white/80 dark:bg-neutral-900/80 flex items-center justify-center ${className}`}
+      style={{ ...style, padding: `${size}px` }}
     >
       {/* Fond grille SVG */}
       <svg
@@ -42,12 +51,17 @@ export default function ImageWithGridBg({
         {/* Dark mode */}
         <rect className="hidden dark:block" width="100%" height="100%" fill="url(#grid-pattern-dark)" />
       </svg>
-      {/* Image */}
-      <img
-        {...props}
-        className="relative z-10 rounded-2xl max-w-full h-auto object-contain"
-        style={{ display: "block", margin: "auto", maxHeight: "600px" }}
-      />
+      {/* Image optimisée avec le composant local */}
+      <div className="relative z-10 w-full h-full flex items-center justify-center">
+        <Image
+          {...props}
+          alt={alt}
+          className="rounded-2xl max-w-full h-auto object-contain"
+          style={{ display: "block", margin: "auto", maxHeight: "600px" }}
+        />
+      </div>
     </div>
   );
-} 
+}
+
+ 

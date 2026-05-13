@@ -1,0 +1,140 @@
+---
+title: Embeds
+description: Guide to understand the fundamentals of scripting embeds.
+---
+
+## Understanding embed structure
+
+Each parameter in the embed is represented by a key-value pair which is separated by a colon.
+For example, the title parameter will look like `{title: hello {user}}`.
+The `{user}` is a [variable](/ressources/script/placeholders) which will be filled in with the user’s display name.
+
+- `{` begins a parameter.
+- `:` separates parameter from content.
+- `::` separates parameters.
+- `}` ends a parameter.
+
+### Available parameters
+
+- `url` - The embed URL. (https://..)
+- `color` - The embed color. (#FFFFFF)
+- `title` - The embed title. (hello `{user}`)
+- `description` - The embed description. (hello `{user}`)
+- `image` - The embed image URL. (https://..)
+- `thumbnail` - The embed thumbnail URL. (https://..)
+- `timestamp` - The embed timestamp. (NO ARGUMENTS)
+
+The following parameters require additional arguments which are separated by &&.
+
+<Accordion type="single" collapsible className="w-full"> 
+        <AccordionItem value="item-1">
+            <AccordionTrigger>Author</AccordionTrigger>
+            <AccordionContent>
+                - `name` - The author’s name.
+                - `icon` - The author’s icon. optional.
+                - `url` - The author’s url. optional.
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    {author: name && icon && url}
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    {author: {user} && {user.avatar}}
+                    ```
+                    </TabsContent>
+                </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-2">
+            <AccordionTrigger>Field</AccordionTrigger>
+            <AccordionContent>
+                    - `name` - The field name.
+                    - `value` - The field value.
+                    - `inline` - Whether the field should be inline. optional.
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    {field: name && value && inline}
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    {field: hello && world && inlline}
+                    ```
+                    </TabsContent>
+                </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-3">
+            <AccordionTrigger>Footer</AccordionTrigger>
+            <AccordionContent>
+                - `text` - The footer text.
+                - `icon` - The footer icon. optional.
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    {footer: text && icon}
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    {footer: {user}}
+                    {footer: {user} && {user.avatar}}
+                    ```
+                    </TabsContent>
+                </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-4">
+            <AccordionTrigger>Buttons</AccordionTrigger>
+            <AccordionContent>
+                - `type` - The button type. (link | blurple | green | grey | red)
+                - `label` - The button label. (text)
+                - `url` - The button URL. (https://...)
+                - `status` - The button status. (enabled | disabled)
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    {button: type && label && url && status}
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    {button: blurple && heyy && disabled}
+                    {button: https://example.com && click this}
+                    ```
+                    </TabsContent>
+                </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+    </Accordion>
+
+## Placeholders
+
+You can use dynamic variables in your embeds to display user-specific information.
+For example, `{user}` will be replaced with the user’s display name.
+
+```plaintext
+{description: {guild.name}}::{message: Hello! {user.mention}}
+```

@@ -6,14 +6,14 @@ import { usePathname } from "next/navigation";
 
 export default function DocsMenu({ isSheet = false }) {
   const pathname = usePathname();
-  if (!pathname.startsWith("/docs")) return null;
+  if (pathname === "/") return null; // Or any other check if needed, but removing /docs is the goal
 
   return (
     <div className="flex flex-col gap-3.5 mt-5 pr-2 pb-6 sm:text-base text-[14.5px]">
       {ROUTES.map((item, index) => {
         const modifiedItems = {
           ...item,
-          href: `/docs${item.href}`,
+          href: `${item.href}`,
           level: 0,
           isSheet,
         };

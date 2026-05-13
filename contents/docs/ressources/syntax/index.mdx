@@ -1,0 +1,61 @@
+# Syntax
+
+General explanation of the syntax used for commands.
+
+## Duration
+
+When a command requires a duration parameter,
+you format it as a number followed by a unit.
+The unit can be one of the following:
+
+- `y` - year
+- `mth` - month
+- `w` - week
+- `d` - day
+- `h` - hour
+- `m` - minute
+- `s` - second
+
+For example,
+`1d` represents one day,
+`1w` represents one week.
+
+You can also combine units,
+for example,
+`1w2d` represents one week and two days.
+
+    <Tabs defaultValue="Correct" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="Correct">Correct</TabsTrigger>
+        <TabsTrigger value="Incorrect">Incorrect</TabsTrigger>
+        </TabsList>
+        <TabsContent value="Correct">
+        ```plaintext
+        ,jail (user) 1h
+        ,jail (user) 2d1h spam
+        ```
+        </TabsContent>
+        <TabsContent value="Incorrect">
+        ```plaintext
+        ,jail @john 2 day spam
+        ,jail @john 1 day 2 hours spam
+        ```
+        </TabsContent>
+    </Tabs>
+
+## Flags Punishments
+
+When a command has a --do flag, you can use it to specify the action to take.
+Below is a list of the flags used for punishment commands:
+
+- `warn` to warn the user.
+- `jail` to jail the user.
+- `kick` to kick the member from the server.
+- `ban` to ban the member from the server.
+- `delete` to delete the message if applicable.
+- `stripstaff` to remove the staff role from the member.
+
+<Note type="warning">
+  The stripstaff flag is only working for roles already binded throught settings
+  staff command.
+</Note>

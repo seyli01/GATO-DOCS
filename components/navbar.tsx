@@ -2,10 +2,12 @@
 import { ModeToggle } from "@/components/theme-toggle";
 import { page_routes } from "@/lib/routes-config";
 import SearchBar from "./search-bar";
+import { Button } from "@/components/ui/button";
+import { FaDiscord } from "react-icons/fa";
 
 export function Logo() {
   return (
-    <span className="font-bold text-xl text-primary">NebulaBot</span>
+    <span className="font-bold text-xl text-primary">Gato</span>
   );
 }
 
@@ -17,13 +19,15 @@ export function NavMenu() {
   );
 }
 
+
+
 export function Navbar() {
   return (
     <nav className="w-full border-b h-16 sticky top-0 z-50 bg-background">
       <div className="sm:container mx-auto w-[95vw] h-full flex items-center justify-between">
         <div className="flex items-center gap-6">
           <a
-            href={`/docs${page_routes[0].href}`}
+            href={`${page_routes[0].href}`}
             className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
           >
             Documentation
@@ -31,9 +35,18 @@ export function Navbar() {
         </div>
         <div className="flex items-center gap-3">
           <SearchBar />
+          <div className="hidden sm:flex">
+            <Button variant="outline" size="sm" asChild className="gap-2">
+              <a href="https://discord.gg/VjjgZcXh9K" target="_blank" rel="noopener noreferrer">
+                <FaDiscord className="w-4 h-4" />
+                Support Server
+              </a>
+            </Button>
+          </div>
           <ModeToggle />
         </div>
       </div>
     </nav>
   );
 }
+

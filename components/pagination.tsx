@@ -7,7 +7,7 @@ export default function Pagination({ pathname }: { pathname: string }) {
   const res = getPreviousNext(pathname);
 
   return (
-    <div className="grid grid-cols-2 flex-grow sm:py-10 sm:py-7 py-4 pt-5 gap-5">
+    <div className="grid grid-cols-2 flex-grow sm:py-10 pt-5 gap-5">
       <div>
         {res.prev && (
           <Link
@@ -16,7 +16,7 @@ export default function Pagination({ pathname }: { pathname: string }) {
               className:
                 "no-underline w-full flex flex-col sm:pl-7 pl-3 sm:py-10 py-8 !items-start text-xs sm:text-sm",
             })}
-            href={`/docs${res.prev.href}`}
+            href={`${res.prev.href}`}
           >
             <span className="flex items-center text-muted-foreground text-xs">
               <ChevronLeftIcon className="w-[1rem] h-[1rem] mr-1" />
@@ -34,7 +34,7 @@ export default function Pagination({ pathname }: { pathname: string }) {
               className:
                 "no-underline w-full flex flex-col sm:pr-7 pr-3 sm:py-10 py-8 !items-end text-xs sm:text-sm",
             })}
-            href={`/docs${res.next.href}`}
+            href={`${res.next.href}`}
           >
             <span className="flex items-center text-muted-foreground text-xs">
               Next

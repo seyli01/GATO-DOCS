@@ -14,26 +14,25 @@ export const ROUTES: EachRoute[] = [
     title: "Getting Started",
     href: "/getting-started",
     noLink: true,
-    icon: "RocketIcon",
     items: [
-      { title: "Introduction", href: "/introduction", icon: "BookOpenIcon" },
+      { title: "Introduction", href: "/introduction", icon: "BookOpen" },
     ],
   },
   {
     title: "Security",
     href: "/Security",
     noLink: true,
-    icon: "ShieldIcon",
     items: [
-      { title: "Moderation", href: "/Moderation", icon: "ShieldCheckIcon" },
-      { title: "Fakepermissions", href: "/fpermissons", icon: "FingerprintIcon" }
+      { title: "Antinuke", href: "/Antinuke", icon: "ShieldX" },
+      { title: "Moderation", href: "/Moderation", icon: "ShieldCheck" },
+      { title: "Fakepermissions", href: "/fpermissons", icon: "Fingerprint" }
     ],
   },
+/*
   {
     title: "Server",
     href: "/Server",
     noLink: true,
-    icon: "Settings",
     items: [
       { title: "Roles", href: "/roles", icon: "UserCheck", 
         noLink: true, 
@@ -52,27 +51,32 @@ export const ROUTES: EachRoute[] = [
       }
     ],
   },
+*/
+/*
   {
     title: "Integration",
     href: "/integrations",
     noLink: true,
-    icon: "BoxIcon",
     items: [
       { title: "Lastfm", href: "/lastfm", icon: "FaLastfm" },
     ],
   },
+*/
   {
     title: "Ressources",
     href: "/ressources",
     noLink: true,
-    icon: "Lightbulb",
     items: [
-      { title: "Embeds", href: "/embeds", icon: "Code", tag: "new" },
-      { title: "Script", href: "/script", icon: "Terminal", noLink: true,
+      { title: "Syntax", href: "/syntax", icon: "Terminal" },
+      { title: "Script", href: "/script", icon: "FileCode", noLink: true,
         items :[
-          { title: "Placeholders", href: "/placeholders"},
+          { title: "Embeds", href: "/embeds", icon: "Code"},
+          { title: "Placeholders", href: "/placeholders", icon: "Braces"},
         ], 
       },
+      { title: "Permissions", href: "/permissions", icon: "ScrollText" },
+      { title: "Translate", href: "/translate", icon: "Languages"},
+
     ],
   },
 ];

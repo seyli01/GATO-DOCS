@@ -1,0 +1,412 @@
+# Antinuke
+
+Impose restrictions on moderators to prevent destructive behavior.
+
+## Why use an antinuke system?
+
+It’s important to have an antinuke system in place to prevent moderators from
+abusing their permissions. This is a security measure which lets your server stay
+safe from any harmful actions.
+
+## How does the antinuke work?
+
+The antinuke will set a limit on the number of actions a moderator can perform
+in a certain time frame. If the limit is exceeded, the moderator will be punished
+and a message will be sent to the owner.
+
+## Configuration
+
+### Allowing users to configure the antinuke
+
+Initially, only the server owner can configure the antinuke. However, you can
+allow other users to configure the antinuke with the `,antinuke admin` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,antinuke admin (user)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,antinuke admin @john
+        ```
+        </TabsContent>
+    </Tabs>
+
+<ImageWithGridBg
+  src="/Antinuke/Antinuke1.png"
+  alt="Configuration Antinuke"
+  size={10}
+/>
+
+To show all antinukes admins, use the `,antinuke admins` command.
+
+### Exempting users from the antinuke
+
+<Note type="warning">
+  This is a dangerous command and will allow the user to bypass the antinuke
+  entirely.
+</Note>
+
+You can exempt users from the antinuke with the `,antinuke whitelist` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,antinuke whitelist (user)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,antinuke whitelist @john
+        ```
+        </TabsContent>
+    </Tabs>
+
+You can always look for the whole list of whitelisted users with
+the `,antinuke whitelisted` command.
+
+## Settings
+
+To ensure the antinuke system works properly, you need to configure the flags related to
+the `,antinuke modules.
+
+<Accordion type="single" collapsible className="w-full"> 
+        <AccordionItem value="item-1">
+            <AccordionTrigger>Threshold</AccordionTrigger>
+            <AccordionContent>  
+                    The threshold is the number of actions a moderator can perform before being punished.
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    --threshold (number)
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    --threshold 5
+                    ```
+                    </TabsContent>
+
+                    <Note type="info">
+                    It’s recommended to keep the threshold between 1 and 6 to stay safe.
+                    </Note>
+                </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-2">
+            <AccordionTrigger>Punishments</AccordionTrigger>
+            <AccordionContent>
+                    The punishment which will be applied to the moderator.
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    --do (action)
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    --do ban
+                    ```
+                    </TabsContent>
+                </Tabs>
+
+            <Note type="info">
+                    Available punishments are [available here](/docs/ressources/syntax).
+            </Note>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-3">
+            <AccordionTrigger>Command detection</AccordionTrigger>
+            <AccordionContent>
+                    Whether gato commands should be counted towards the threshold.
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    --command (on|off)
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    --command on
+                    ```
+                    </TabsContent>
+                </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+    </Accordion>
+
+## Available Modules
+
+<Accordion type="single" collapsible className="w-full"> 
+        <AccordionItem value="item-1">
+            <AccordionTrigger>Prevent member for changing the server's vanity url</AccordionTrigger>
+            <AccordionContent>  
+                    When the module is enabled, it will prevent any member 
+                    from changing the server's vanity url.                    
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    ,antinuke vanity (on|off) [--do (punishement)]
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    ,antinuke vanity on --do ban
+                    ```
+                    </TabsContent>
+
+                    <Note type="warning">
+                    Due to discord limitations, Gato won't be able to
+                    recover the server's vanity url.
+                    </Note>
+                </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-2">
+            <AccordionTrigger>Prevent Bots from being added to the server</AccordionTrigger>
+            <AccordionContent>
+                    When the module is enabled, it will prevent any member
+                    from adding a bot to the server.
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    ,antinuke bot (on|off) [--do (punishement)]
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    ,antinuke bot on --do stripstaff
+                    ```
+                    </TabsContent>
+                </Tabs>
+
+            <Note type="info">
+                    To invite bot, use the command `,antinuke whitelist (bot_id)`.
+            </Note>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-3">
+            <AccordionTrigger>Prevent members from being mass banned</AccordionTrigger>
+            <AccordionContent>
+                    When the module is enabled, it will prevent any member
+                    from mass banning members.
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    ,antinuke ban (on|off) [--do (punishement)] [--threshold (number)] [--command (on|off)]
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    ,antinuke ban on --do ban --threshold 3 --command on
+                    ```
+                    </TabsContent>
+                </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-4">
+            <AccordionTrigger>Prevent member from being mass kicked</AccordionTrigger>
+            <AccordionContent>
+                    When the module is enabled, it will prevent any member
+                    from mass kicking members.
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    ,antinuke kick (on|off) [--do (punishement)] [--threshold (number)] [--command (on|off)]
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    ,antinuke kick on --do ban --threshold 3 --command on
+                    ```
+                    </TabsContent>
+                </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-5">
+            <AccordionTrigger>Prevent roles from being created or deleted</AccordionTrigger>
+            <AccordionContent>
+                    When the module is enabled, it will prevent any member
+                    from mass creating or deleting roles.
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    ,antinuke role (on|off) [--do (punishement)] [--threshold (number)] [--command (on|off)]
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    ,antinuke role on --do ban --threshold 3 --command on
+                    ```
+                    </TabsContent>
+                </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-6">
+            <AccordionTrigger>Prevent channels from being created or deleted</AccordionTrigger>
+            <AccordionContent>
+                    When the module is enabled, it will prevent any member
+                    from mass creating or deleting channels.
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    ,antinuke channel (on|off) [--do (punishement)] [--threshold (number)]
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    ,antinuke channel on --do ban --threshold 3
+                    ```
+                    </TabsContent>
+                </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-7">
+            <AccordionTrigger>Prevent emojis from being deleted or created</AccordionTrigger>
+            <AccordionContent>
+                    When the module is enabled, it will prevent any member
+                    from mass creating or deleting emojis.
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    ,antinuke emoji (on|off) [--do (punishement)] [--threshold (number)]
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    ,antinuke emoji on --do ban --threshold 3
+                    ```
+                    </TabsContent>
+                </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-8">
+            <AccordionTrigger>Prevent webhooks from being created or deleted</AccordionTrigger>
+            <AccordionContent>
+                    When the module is enabled, it will prevent any member
+                    from mass creating or deleting webhooks.
+                <Tabs defaultValue="syntax" className="pt-2 pb-1">
+                    <TabsList>
+                    <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+                    <TabsTrigger value="example">Exemple</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="syntax">
+                    ```plaintext
+                    ,antinuke webhook (on|off) [--do (punishement)] [--threshold (number)]
+                    ```
+                    </TabsContent>
+                    <TabsContent value="example">
+                    ```plaintext
+                    ,antinuke webhook on --do ban --threshold 3
+                    ```
+                    </TabsContent>
+                </Tabs>
+            </AccordionContent>
+        </AccordionItem>
+    </Accordion>
+
+## Disable Antinuke
+
+If you want to disable any antinuke module, you can use the `,antinuke (module) off` command.
+
+    <Tabs defaultValue="syntax" className="pt-2 pb-1">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,antinuke (module) off
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,antinuke ban off
+        ```
+        </TabsContent>
+    </Tabs>
+
+## View Antinuke's settings
+
+If you want to view antinuke's settings, you can use the `,antinuke status` command.
+
+```
+,antinuke status
+```
+
+## Antinuke Permissions
+
+To ensure the secruity of the server, antinuke admins need permissions to be assigned through
+the `,antinuke permissions` command. List of the permissions:
+
+- `administrator`
+- `ban_members`
+- `mention_everyone`
+- `kick_members`
+- `moderate_members`
+- `manage_guild`
+- `manage_channels`
+- `manage_roles`
+- `view_audit_log`
+- `manage_webhooks`
+- `manage_expressions`
+- `manage_nicknames`

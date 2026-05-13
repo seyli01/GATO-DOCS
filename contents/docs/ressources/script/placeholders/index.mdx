@@ -1,68 +1,130 @@
 # Placeholders
 
-**Placeholders** are special keywords wrapped in curly braces `{}` that the bot **automatically replaces** with dynamic values.  
+All available variables within Gato.
 
-They allow you to **personalize messages**, embeds, and responses based on the context (user, server, date, etc.).
+Placeholders are variables that can be used in embeds or raw responses
+to display specific information.
+They are available for commands like `welcome`, `goodbye`, etc.
 
-All placeholders are available here :
+Here is the list of available placeholders per category:
 
-<Tabs defaultValue="Member" className="pt-3 pb-0.7">
-  <TabsList>
-    <TabsTrigger value="Member">Member</TabsTrigger>
-    <TabsTrigger value="Server">Server</TabsTrigger>
-    <TabsTrigger value="Moderation">Moderation</TabsTrigger>
-    <TabsTrigger value="LastFM">Last.fm</TabsTrigger>
-  </TabsList>
+<Tabs defaultValue="Guild" className="pt-3 pb-0.7">
+      <TabsList>
+        <TabsTrigger value="Guild">Guild</TabsTrigger>
+        <TabsTrigger value="User">User</TabsTrigger>
+        <TabsTrigger value="Channel">Channel</TabsTrigger>
+        <TabsTrigger value="Lastfm">Lastfm</TabsTrigger>
+        <TabsTrigger value="Leveling">Leveling</TabsTrigger>
+        <TabsTrigger value="Moderation">Moderation</TabsTrigger>
+      </TabsList>
 
-  <TabsContent value="Member">
-    - `member.avatar` → Member’s avatar URL  
-    - `member.mention` → Mention the member (`@User`)  
-    - `member.joined_at` → Member join date (YYYY-MM-DD HH:MM:SS)  
-    - `member.name` → Member username  
-    - `member.display_name` → Server nickname or username  
-    - `member.discriminator` → The #1234 tag  
-    - `member.id` → Member ID  
-    - `member.bot` → Whether the member is a bot  
-    - `member.pending` → Pending membership flag  
-    - `member.premium_since` → Date when they boosted the server  
-    - `member.status` → Online status (online, idle, dnd…)  
-    - `member.raw_status` → Raw Discord status  
-    - `member.created_at` → Account creation date  
-    - `member.top_role` → Top role name  
-  </TabsContent>
+      <TabsContent value="Guild">
+        - `{guild.name}`                 - Server name
+        - `{guild.id}`                   - Server ID
+        - `{guild.count}`                - Total member count
+        - `{guild.owner_id}`             - Server owner ID
+        - `{guild.boost_count}`          - Number of boosts
+        - `{guild.boost_tier}`           - Server boost level (e.g., Level 1)
+        - `{guild.preferred_locale}`     - Server locale
+        - `{guild.emoji_count}`          - Total emojis
+        - `{guild.role_count}`           - Total roles
+        - `{guild.channels_count}`       - Total channels
+        - `{guild.text_channels_count}`  - Text channels count
+        - `{guild.voice_channels_count}` - Voice channels count
+        - `{guild.category_channels_count}` - Category channels count
+        - `{guild.afk_timeout}`          - AFK timeout in seconds
+        - `{guild.max_members}`          - Max members limit
+        - `{guild.vanity}`               - Vanity URL code
+        - `{guild.key_features}`         - Notable server features
+        - `{guild.icon}`                 - Server icon URL
+        - `{guild.banner}`               - Server banner URL
+        - `{guild.created_at}`           - Creation date (DD Mon YYYY)
+        - `{guild.created_at_timestamp}` - Creation Unix timestamp
+      </TabsContent>
 
-  <TabsContent value="Server">
-    - `server.avatar` → Server icon URL  
-    - `server.member_count` → Total number of members  
-    - `server.name` → Server name  
-    - `server.id` → Server ID  
-    - `server.owner_id` → Server owner’s user ID  
-    - `server.description` → Server description (if any)  
-    - `server.max_members` → Max allowed members  
-    - `server.max_presences` → Max allowed presences  
-    - `server.premium_tier` → Server boost level  
-    - `server.premium_subscription_count` → Number of server boosts  
-    - `server.preferred_locale` → Default locale (e.g. `en-US`)  
-    - `server.verification_level` → Verification level required  
-    - `server.created_at` → Server creation date  
-  </TabsContent>
+      <TabsContent value="User">
+        - `{user.name}`                  - Username (or Last.fm username if context matches)
+        - `{user.id}`                    - User ID
+        - `{user.tag}`                   - Discriminator (e.g., 0001 or name)
+        - `{user.mention}`               - User mention (`<@ID>`)
+        - `{user.display_name}`          - Global display name or username
+        - `{user.display_avatar}`        - Global avatar URL
+        - `{user.avatar}`                - Avatar URL (from Last.fm if context matches)
+        - `{user.guild_avatar}`          - Server-specific avatar URL
+        - `{user.bot}`                   - "Yes" or "No"
+        - `{user.boost}`                 - "Yes" or "No"
+        - `{user.boost_since}`           - Boost start date
+        - `{user.boost_since_timestamp}` - Boost start Unix timestamp
+        - `{user.joined_at}`             - Join date
+        - `{user.joined_at_timestamp}`   - Join Unix timestamp
+        - `{user.top_role}`              - Highest role name
+        - `{user.color}`                 - Color of highest role (Hex)
+        - `{user.role_list}`             - List of roles (mentions)
+        - `{user.join_position}`         - Join position with suffix (e.g., 1st)
+        - `{user.join_position_raw}`     - Numeric join position
+        - `{user.join_position_suffix}`  - Join position suffix only (st, nd, rd, th)
+        - `{user.created_at}`            - Account creation date
+        - `{user.created_at_timestamp}`  - Account creation Unix timestamp
+      </TabsContent>
 
-  <TabsContent value="Moderation">
-    - `duration` → Duration of the action
-    - `reason` → Reason for the action
-    - `total_warn` → Total number of warnings  
-    - `author.mention` → Mention the command executor  
-  </TabsContent>
+      <TabsContent value="Channel">
+        - `{channel.name}`               - Channel name
+        - `{channel.id}`                 - Channel ID
+        - `{channel.mention}`            - Channel mention (`<#ID>`)
+        - `{channel.topic}`              - Channel topic
+        - `{channel.type}`               - Channel type (text, voice, etc.)
+        - `{channel.category_id}`        - Parent category ID
+        - `{channel.category_name}`      - Parent category name
+        - `{channel.position}`           - Channel position
+        - `{channel.slowmode_delay}`     - Slowmode delay in seconds
+      </TabsContent>
 
-  <TabsContent value="LastFM">
-    - `track.artist` → Artist name **with a clickable Last.fm link**  
-    - `track.artist.raw` → Artist name as plain text  
-    - `track.title` → Track title **with a clickable Last.fm link**  
-    - `track.title.raw` → Track title as plain text  
-    - `track.album` → Album name **with a clickable Last.fm link**  
-    - `track.album.raw` → Album name as plain text  
-    - `track.cover` → Album cover image URL  
-    - `scrobbles` → Total scrobbles for the user  
-    - `playcount` → Playcount for the current track  
-  </TabsContent>
-</Tabs>
+      <TabsContent value="Lastfm">
+        - `{user.scrobbles}`             - Total scrobbles
+        - `{proper(user.scrobbles)}`     - Total scrobbles formatted (1,234)
+        - `{user.plays}`                 - Total scrobbles (alias)
+        - `{proper(user.plays)}`         - Total scrobbles formatted (alias)
+        - `{user.url}`                   - Last.fm profile URL
+        - `{user.artist_crown}`          - Crown emoji if artist crown owner
+        - `{author}`                     - Last.fm author (Name#Discrim)
+        - `{author.name}`                - Last.fm author name
+        - `{author.nickname}`            - Last.fm author nickname
+        - `{author.discriminator}`       - Last.fm author discriminator
+        - `{track.name}`                 - Track name
+        - `{lower(track.name)}`          - Track name in lowercase
+        - `{track.url}`                  - Last.fm track URL
+        - `{track.spotify_url}`          - Spotify URL for track
+        - `{track.release_date}`         - Track release date
+        - `{track.duration}`             - Track duration
+        - `{track.plays}`                - Plays for this track
+        - `{proper(track.plays)}`        - Plays for this track formatted
+        - `{album.name}`                 - Album name
+        - `{lower(album.name)}`          - Album name in lowercase
+        - `{album.url}`                  - Last.fm album URL
+        - `{album.cover}`                - Album cover image URL
+        - `{artist.name}`                - Artist name
+        - `{lower(artist.name)}`          - Artist name in lowercase
+        - `{artist.url}`                 - Last.fm artist URL
+        - `{artist.image}`               - Artist image URL
+        - `{artist.plays}`               - Total plays for this artist
+      </TabsContent>
+
+      <TabsContent value="Leveling">
+        - `{level.new_rank}`             - New rank reached
+        - `{level.current_level}`        - Current level
+        - `{level.user_xp}`              - Current total XP
+      </TabsContent>
+
+      <TabsContent value="Moderation">
+        - `{moderator.name}`             - Moderator's username
+        - `{moderator.id}`               - Moderator's ID
+        - `{moderator.mention}`          - Moderator mention
+        - `{moderator.tag}`              - Moderator's tag
+        - `{moderator.display_name}`     - Moderator's display name
+        - `{reason}`                     - Action reason
+        - `{duration}`                   - Action duration
+        - `{warns}`                      - Total warnings count
+        - `{warns.suffix}`               - Warning count ordinal suffix
+        - `{case}`                       - Case number
+      </TabsContent>
+    </Tabs>

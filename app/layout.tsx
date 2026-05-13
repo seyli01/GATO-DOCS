@@ -20,10 +20,10 @@ const monoFont = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AriaDocs - Template",
-  metadataBase: new URL("https://ariadocs.vercel.app/"),
+  title: "Gato bot - Documentation",
+  metadataBase: new URL("https://gato.bot/"),
   description:
-    "This comprehensive documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your project documentation requirements.",
+    "Documentation officielle pour le bot Gato : modération, rôles, intégrations et outils pour votre serveur Discord.",
 };
 
 export default function RootLayout({
@@ -51,7 +51,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="sm:container mx-auto w-[90vw] h-auto scroll-smooth">
+          <main className="sm:container mx-auto w-[90vw] scroll-smooth">
             {children}
           </main>
           <Footer />
