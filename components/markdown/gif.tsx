@@ -35,7 +35,7 @@ export default function GifWithGridBg({
         }}
       />
       
-      {/* GIF - Pas d'optimisation Next.js */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         alt={alt}

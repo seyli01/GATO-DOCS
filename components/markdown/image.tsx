@@ -13,9 +13,9 @@ export default function Image({
 }: ComponentProps<"img">) {
   if (!src) return null;
   
-  // Si c'est un GIF, utiliser une balise img normale pour éviter l'optimisation
   if (src.toLowerCase().endsWith('.gif')) {
     return (
+      /* eslint-disable-next-line @next/next/no-img-element */
       <img
         src={src}
         alt={alt}
