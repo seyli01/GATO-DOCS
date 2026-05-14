@@ -1,0 +1,121 @@
+# Logging
+
+Display a logs of all the actions in your server.
+
+## Overview
+
+Logging allows you to log events in your server.
+This can be useful for keeping track of what’s happening in your server.
+
+### Adding a log event
+
+You can add a logging event using the command `log add (channel) (event)`.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,log add (channel) (event)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,log add #logs messages
+        ```
+        </TabsContent>
+    </Tabs>
+
+<Note type="info">
+  This command will create a webhook to display the logs, Do not delete it.
+</Note>
+
+### Removing a log event
+
+You can remove a logging event using the command `log remove (event)`.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,log remove (event)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,log remove messages
+        ```
+        </TabsContent>
+    </Tabs>
+
+You can of course view the current logging events using the command `log list`.
+
+### Ignore specific members or channels
+
+You can ignore specific members or channels from the logging events using the command `log ignore (member|channel)`.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,log ignore (member)
+        ,log ignore (channel)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,log ignore @user1
+        ,log ignore #general
+        ```
+        </TabsContent>
+    </Tabs>
+
+A list of all ignored members/channels is displayed using the `log ignore list` command.
+
+### Available log events
+
+Here the list of all events you can log and also the explaination of each one.
+
+| Category     | Keyword  | Events Covered                                                                   |
+| :----------- | :------- | :------------------------------------------------------------------------------- |
+| **Messages** | messages | Deleted messages, edited messages.                                               |
+| **Members**  | members  | Member join/leave, role updates, nickname changes, mutes, deafens, and timeouts. |
+| **Roles**    | roles    | Role creation, deletion, and updates (name, color, permissions, etc.).           |
+| **Channels** | channels | Channel creation, deletion, and updates (name, topic, slowmode, bitrate, etc.).  |
+| **Invites**  | invites  | Invite creation and deletion.                                                    |
+| **Emojis**   | emojis   | Emoji creation, renaming, and deletion.                                          |
+| **Voice**    | voice    | Voice channel join/leave, moves, and state changes (mute, deafen, stream).       |
+
+You can of course add multiple log events to your server and remove them whenever you want.
+
+## More
+
+You can also customize the color of the embed of each log event, using the command `log color (event) (color)`.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,log color (event) (color)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,log color messages #FF0000
+        ```
+        </TabsContent>
+    </Tabs>
+
+This let you customize the color of the embed of each log event,
+making it easier to distinguish between different types of events.

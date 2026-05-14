@@ -1,0 +1,147 @@
+# Levels
+
+Reward your members for being active in your server.
+
+## Getting started
+
+Before you run any commands, it’s important to use the `,levels unlock` command otherwise
+XP will not be tracked for users.
+You can also use the `,levels lock` command to temporarily stop tracking XP.
+
+## Ignore Channels and roles
+
+To stop users from gaining XP in some channels or from some roles,
+use the `,levels ignore` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,levels ignore (channel)
+        ,levels ignore (role)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,levels ignore #general
+        ,levels ignore @role
+        ```
+        </TabsContent>
+    </Tabs>
+
+This command is a toggle, use it again if you want to allow users to gain XP in those channels/roles.
+
+## Rewards
+
+To reward users when they reach a certain level, use the `,levels add` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,levels add (level) (role)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,levels add 10 @role
+        ```
+        </TabsContent>
+    </Tabs>
+
+You can also remove rewards with the `,levels remove` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,levels remove (level)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,levels remove 10
+        ```
+        </TabsContent>
+    </Tabs>
+
+## Stacking reward roles
+
+Stacking roles means that users will keep all the roles they’ve earned when they reach a new level,
+instead of only having the role for their current level.
+By default, this feature is enabled.
+
+To enable stacking roles, use the `,levels stacking` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,levels stackroles (on|off)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,levels stackroles on
+        ```
+        </TabsContent>
+    </Tabs>
+
+## Customizing level-up messages
+
+To enable custom level-up messages, use the `,levels message` command. By default, the message is
+sent where the user sent the message that gave them XP. You can change this with the following keywords:
+
+- `dm`: Send the message in a private chat with the user.
+- `#channel`: Send the message in the targetted channel.
+- `disabled`: Disable level-up messages.
+
+For exemple, if you want the message to be sent in a specific channel :
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,levels messagemode (channel)
+        ,levels messagemode dm
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,levels messagemode #Levelup
+        ,levels messagemode dm
+        ```
+        </TabsContent>
+    </Tabs>
+
+But if you want the message to be sent in the last channel the user sent a message :
+
+```plaintext
+,levels messagemode
+```
+
+because leaving it empty set it to default, the channel where the user sent the message that gave him xp.
+
+The message also support embeded message, learn more [here](/ressources/script/embeds).
+
+## More
+
+You can of course reset the levels of a user with the `,levels reset` command, set a new multiplicater
+with the command `levels setrate` or get the leaderboard with the command `levels leaderboard`.
+The leveling system is highly customizable and versatile. For any other question, feel free to ask on
+our [Discord server](https://discord.gg/VjjgZcXh9K).

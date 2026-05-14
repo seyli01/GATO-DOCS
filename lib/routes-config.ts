@@ -16,6 +16,7 @@ export const ROUTES: EachRoute[] = [
     noLink: true,
     items: [
       { title: "Introduction", href: "/introduction", icon: "BookOpen" },
+      { title: "Perks", href: "/perks", icon: "Gift" },
     ],
   },
   {
@@ -28,30 +29,41 @@ export const ROUTES: EachRoute[] = [
       { title: "Fakepermissions", href: "/fpermissons", icon: "Fingerprint" }
     ],
   },
-/*
+
   {
     title: "Server",
     href: "/Server",
     noLink: true,
     items: [
-      { title: "Roles", href: "/roles", icon: "UserCheck", 
+      /*{ title: "Roles", href: "/roles", icon: "UserCheck", 
         noLink: true, 
         items: [
           { title: "Vanity Roles", href: "/vanity"}, 
           { title: "Booster Roles", href: "/booster"},
           { title: "Reactions Roles", href: "/reactions"}
         ],
-      },
-      { title: "Messages", href: "/Messages", icon: "MessagesSquare",
+      },*/
+      { title: "Messages", href: "/messages", icon: "MessagesSquare",
         noLink:true, 
         items: [
           { title: "System", href: "/system"}, 
           //{ title: "Autoresponder", href: "/autoresponder"},
         ],
-      }
+      },
+      { title: "Roles", href: "/roles", icon: "User",
+        noLink:true, 
+        items: [
+          { title: "Booster", href: "/booster"},
+        ],
+      },
+      { title: "Alias", href: "/alias", icon: "Command"},
+      { title: "VoiceMaster", href: "/voicemaster", icon: "Radio"},
+      { title: "Leveling", href: "/levels", icon: "Trophy"},
+      { title: "Bump Reminders", href: "/bump", icon: "Bell"},
+      { title: "Logging", href: "/logging", icon: "FileText"},
     ],
   },
-*/
+
 /*
   {
     title: "Integration",

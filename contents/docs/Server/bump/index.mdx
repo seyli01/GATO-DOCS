@@ -1,0 +1,107 @@
+# Bump Reminder
+
+Receive reminders to bump your server on DISBOARD.
+
+## Why use bump reminders?
+
+Receiving reminders to bump your server on DISBOARD can help you increase your server’s visibility and attract new members.
+You can set up the DISBOARD bot by clicking [here](https://disboard.org/fr).
+
+## How to setup ?
+
+After inviting the DISBOARD bot to your server, you can set up the bump reminder by
+using the `bumpreminder channel` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,bumpreminder channel #channel
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,bumpreminder channel #bump-channel
+        ```
+        </TabsContent>
+    </Tabs>
+
+To remove the bump reminder, use the `bumpreminder channel` command without any arguments. If
+you want to delete all the bump configuration, use the `bump removeall` command.
+
+## Customize Bump Reminder Message
+
+You need to setup the message and the thankyou message.
+The bump reminder message is sent when it's time to bump the server.
+The thankyou message is sent when a user bumps the server.
+
+To customize the bump message, use the `bumpreminder message` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,bumpreminder message <message>
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,bumpreminder message Thank you for bumping the server {user.displayname} !
+        ```
+        </TabsContent>
+    </Tabs>
+
+To customize the thankyou message, use the `bump thankyou` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,bumpreminder thankyou <message>
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,bumpreminder thankyou Thank you for bumping the server {user.displayname} !
+        ```
+        </TabsContent>
+    </Tabs>
+
+<Note>
+  Both of these commands support embedded messages. Learn more
+  [here](/ressources/script).
+</Note>
+
+You can ping the last bumper using the placeholder `{bumpreminder.last_user_bump}`.
+
+## Additional configurations
+
+You can also lock the channel after a bump. To do this, use the `bumpreminder lock` command.
+
+```plaintext
+,bumpreminder lock
+```
+
+Also, it can be cleaned using the `bumpreminder autoclean` command. This command make
+your channel clean and delete any messages non-related to the bump command.
+
+```plaintext
+,bumpreminder autoclean
+```
+
+## More
+
+You can check the configuration of the bump reminder with the `,bumpreminder status` command.
+
+| Command                 | Description                                                             |
+| :---------------------- | :---------------------------------------------------------------------- |
+| **bumpreminder status** | Displays all current configuration values for the bump reminder system. |

@@ -24,6 +24,8 @@ import GifWithGridBg from "@/components/markdown/gif";
 import Link from "@/components/markdown/link";
 import Outlet from "@/components/markdown/outlet";
 import Files from "@/components/markdown/files";
+import Card from "@/components/markdown/card";
+import CardGrid from "@/components/markdown/card-grid";
 import {
   Table,
   TableBody,
@@ -54,6 +56,8 @@ const components = {
   a: Link,
   Outlet,
   Files,
+  Card,
+  CardGrid,
   table: Table,
   thead: TableHeader,
   th: TableHead,

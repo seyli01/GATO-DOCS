@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import { getCompiledDocsForSlug, getDocFrontmatter } from "@/lib/markdown";
 import { Typography } from "@/components/typography";
 
+import { redirect } from "next/navigation";
+
 type PageProps = {
   params: Promise<{ slug: string[] }>;
 };
@@ -17,7 +19,15 @@ export default async function DocsPage(props: PageProps) {
   const pathName = slug.join("/");
   const res = await getCompiledDocsForSlug(pathName);
 
-  if (!res) notFound();
+  if (!res) {
+    const firstChild = page_routes.find((route) =>
+      route.href.startsWith(`/${pathName}/`)
+    );
+    if (firstChild) {
+      redirect(firstChild.href);
+    }
+    notFound();
+  }
   return (
     <div className="flex items-start gap-10">
       <div className="flex-[4.5] py-10 mx-auto">

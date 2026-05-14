@@ -16,6 +16,7 @@ Here is the list of available placeholders per category:
         <TabsTrigger value="Lastfm">Lastfm</TabsTrigger>
         <TabsTrigger value="Leveling">Leveling</TabsTrigger>
         <TabsTrigger value="Moderation">Moderation</TabsTrigger>
+        <TabsTrigger value="BumpReminder">BumpReminder</TabsTrigger>
       </TabsList>
 
       <TabsContent value="Guild">
@@ -126,5 +127,10 @@ Here is the list of available placeholders per category:
         - `{warns}`                      - Total warnings count
         - `{warns.suffix}`               - Warning count ordinal suffix
         - `{case}`                       - Case number
+      </TabsContent>
+
+      <TabsContent value="BumpReminder">
+        - `{bumpreminder.last_user_bump}` - Last user who bumped the server
+        - `{bumpreminder.next_bump}`      - Next bump time
       </TabsContent>
     </Tabs>

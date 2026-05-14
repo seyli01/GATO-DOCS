@@ -1,0 +1,56 @@
+# Alias
+
+## Overview
+
+The alias system allows you to create custom names for commands.
+This is useful for making commands shorter or easier to remember.
+
+## Creating an alias
+
+You can create an alias using the `alias` command.
+The syntax is as follows:
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,alias create (alias) (command)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,alias create k kick
+        ```
+        </TabsContent>
+    </Tabs>
+
+<ImageWithGridBg src="/Alias/Alias.png" alt="Configuration alias" size={10} />
+
+Now the command run using only k instead of kick. The following arguments
+of the commands are kept in the same order
+
+Example:
+
+```plaintext
+,k @john spam
+```
+
+You can of course **delete** an alias in the server using the folowing command:
+
+```plaintext
+,alias delete (alias)
+```
+
+or to view all the alias created in the server:
+
+```plaintext
+,alias list
+```
+
+<Note type="warning">
+  If an alias is already used by an existing command, natively or set by an
+  user, the bot will throw an error and the alias won't be created.
+</Note>

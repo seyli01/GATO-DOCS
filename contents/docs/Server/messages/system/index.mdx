@@ -1,0 +1,122 @@
+# System Messages
+
+Automatically send messages when certain member events occur.
+
+## Commands
+
+There are three system message commands, each with the same subcommands.
+
+- `welcome` - Dispatched whenever a user joins the server.
+- `goodbye` - Dispatched whenever a user leaves the server.
+- `boost` - Dispatched whenever a user boosts the server.
+
+The 3 commands have the same syntax and subcommands. We will continue the exemple using the welcome
+command.
+
+## Creating a system message
+
+You can create a system message using the `,welcome add` subcommand.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,welcome add (channel) (message)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,welcome add #welcome Welcome to our server {user.mention}
+        ```
+        </TabsContent>
+    </Tabs>
+
+You can also use the flag `--self_destruct` to make the message self-destruct after a certain time.
+The value is between 6 and 60
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,welcome add (channel) (message) --self_destruct (seconds)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,welcome add #welcome Welcome to our server {user.mention} --self_destruct 10
+        ```
+        </TabsContent>
+    </Tabs>
+
+The system command also support embeds.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,welcome add (channel) (embed code)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,welcome add #welcome {embed: {"title": "Welcome {user.name}"}}::{description: "Have a good time on our server!"}::{footer: "{server.name}"}::{timestamp}
+        ```
+        </TabsContent>
+    </Tabs>
+
+## Remove system message
+
+You can remove a system message using the `,welcome remove` subcommand.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,welcome remove (channel)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,welcome remove #welcome
+        ```
+        </TabsContent>
+    </Tabs>
+
+## More
+
+If you want to list the system messages, use the `,welcome list` subcommand.
+
+```plaintext
+,welcome list
+```
+
+This will display where the system message is sent, you can also preview the system message using the `,welcome view` subcommand.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,welcome view (channel)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,welcome view #welcome
+        ```
+        </TabsContent>
+    </Tabs>

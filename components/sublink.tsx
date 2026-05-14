@@ -8,7 +8,7 @@ import {
 import { cn } from "@/lib/utils";
 import { SheetClose } from "@/components/ui/sheet";
 import { ChevronDown, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { usePathname } from "next/navigation";
 import * as LucideIcons from "lucide-react";
 import * as ReactIcons from "react-icons/fa";
@@ -34,10 +34,21 @@ export default function SubLink({
   const ReactIcon = icon ? ((ReactIcons as unknown) as Record<string, React.ComponentType<{ className?: string }>>)[icon] : null;
   const Icon = LucideIcon || ReactIcon;
 
+  const targetHref = useMemo(() => {
+    if (!noLink || !items || items.length === 0) return href;
+    let current: EachRoute[] | undefined = items;
+    let path = href;
+    while (current && current.length > 0) {
+      path += current[0].href;
+      current = current[0].items;
+    }
+    return path;
+  }, [href, items, noLink]);
+
   const Comp = (
     <Anchor
       activeClassName="text-primary dark:font-medium font-semibold"
-      href={href}
+      href={targetHref}
     >
       {Icon && <Icon className="w-4 h-4 mr-2 inline-block text-muted-foreground" />}
       {title}
@@ -49,22 +60,10 @@ export default function SubLink({
     </Anchor>
   );
 
-  const titleOrLink = !noLink ? (
-    isSheet ? (
-      <SheetClose asChild>{Comp}</SheetClose>
-    ) : (
-      Comp
-    )
+  const titleOrLink = isSheet ? (
+    <SheetClose asChild>{Comp}</SheetClose>
   ) : (
-    <h4 className="font-medium sm:text-sm text-primary">
-      {Icon && <Icon className="w-4 h-4 mr-2 inline-block text-muted-foreground" />}
-      {title}
-      {tag && (
-        <span className="dark:bg-blue-700 bg-blue-500 rounded-md px-1.5 py-0.5 mx-2 text-xs text-white !font-normal">
-          {tag}
-        </span>
-      )}
-    </h4>
+    Comp
   );
 
   if (!items) {
