@@ -11,8 +11,8 @@ export type EachRoute = {
 
 export const ROUTES: EachRoute[] = [
   {
-    title: "Getting Started",
-    href: "/getting-started",
+    title: "Overview",
+    href: "/overview",
     noLink: true,
     items: [
       { title: "Introduction", href: "/introduction", icon: "BookOpen" },
@@ -21,18 +21,18 @@ export const ROUTES: EachRoute[] = [
   },
   {
     title: "Security",
-    href: "/Security",
+    href: "/security",
     noLink: true,
     items: [
-      { title: "Antinuke", href: "/Antinuke", icon: "ShieldX" },
-      { title: "Moderation", href: "/Moderation", icon: "ShieldCheck" },
-      { title: "Fakepermissions", href: "/fpermissons", icon: "Fingerprint" }
+      { title: "Antinuke", href: "/antinuke", icon: "ShieldX" },
+      { title: "Moderation", href: "/moderation", icon: "ShieldCheck" },
+      { title: "Fakepermissions", href: "/fakepermissions", icon: "Fingerprint" }
     ],
   },
 
   {
     title: "Server",
-    href: "/Server",
+    href: "/server",
     noLink: true,
     items: [
       /*{ title: "Roles", href: "/roles", icon: "UserCheck", 
