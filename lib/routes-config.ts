@@ -47,6 +47,7 @@ export const ROUTES: EachRoute[] = [
         noLink:true, 
         items: [
           { title: "System", href: "/system"}, 
+          { title: "Timers", href: "/timers"},
           //{ title: "Autoresponder", href: "/autoresponder"},
         ],
       },
@@ -54,6 +55,8 @@ export const ROUTES: EachRoute[] = [
         noLink:true, 
         items: [
           { title: "Booster", href: "/booster"},
+          { title: "Reaction Roles", href: "/reactions"},
+          { title: "Button Roles", href: "/buttons"}
         ],
       },
       { title: "Alias", href: "/alias", icon: "Command"},

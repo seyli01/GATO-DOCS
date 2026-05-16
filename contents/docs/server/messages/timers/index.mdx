@@ -1,0 +1,89 @@
+---
+title: Timers
+description: Send messages at regular intervals in a specific channel.
+---
+
+You can send messages automatically in a specific channel with custom time intervals
+using the `timer` command.
+
+### How to create a timer
+
+You can create a timer with the `timer create` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,timer create (channel) (interval) (message)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,timer create #general 1h Check out our latest update.
+        ```
+        </TabsContent>
+    </Tabs>
+
+Now the message "Check out our latest update." will be sent every hour in the #general channel.
+
+<Note>
+  The command also support embeds, you can learn more about it
+  [here](/ressources/script/embeds)
+</Note>
+
+<Note>
+  The minimum time interval is **10 minutes** while the maximum is **1 week**.
+</Note>
+
+### How to view a timer
+
+You can view a timer with the `timer view` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,timer view (channel)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,timer view #general
+        ```
+        </TabsContent>
+    </Tabs>
+
+### How to view all timers
+
+You can view all timers with the `timer list` command.
+
+```plaintext
+,timer list
+```
+
+### How to remove a timer
+
+You can remove a timer with the `timer remove` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,timer remove (channel)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,timer remove #general
+        ```
+        </TabsContent>
+    </Tabs>

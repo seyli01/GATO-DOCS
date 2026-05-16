@@ -3,67 +3,94 @@ title: Reactions Roles
 description: Allow your members to assign themselves roles by reacting to a message.
 ---
 
-import ImageWithGridBg from "@/components/markdown/image-bg"
+## What are reaction roles?
 
-## What is it ? 
-
-Reaction roles are roles that are assigned to members when they react to a message. 
+Reaction roles are roles that are assigned to members when they react to a message.
 This can be useful for letting members choose unique roles or as a way to verify themselves.
 
-## Getting Started
+## Create a reaction role
 
-You can create multiple reaction roles for a single message with a different emoji for each role.
-
-<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
-    <TabsList>
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
         <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
         <TabsTrigger value="example">Exemple</TabsTrigger>
-      </TabsList>
-      <TabsContent value="syntax">
+        </TabsList>
+        <TabsContent value="syntax">
         ```plaintext
-        $reactrole add <message_id>, <role>, <reaction>
+        ,reactionrole add (message link) (emoji) (role)
         ```
-      </TabsContent>
-      <TabsContent value="example">
+        </TabsContent>
+        <TabsContent value="example">
         ```plaintext
-        $reactrole add 1390404101707268337, members, ✅ 
+        ,reactionrole add .../channels/... ✅ @Member :smile: @role
         ```
-      </TabsContent>
+        </TabsContent>
     </Tabs>
 
-<ImageWithGridBg src="/rrshow1.gif" alt="Nebula" size={20} />
+## Removing a reaction role
 
-<Note type="warning">
-  To perfom the command, you need to execute the command in the same channel where the message is located.
-</Note>
+To remove a reaction role, you can use the `reactionrole remove` command.
 
-
-To remove it, run : 
-
-<Tabs defaultValue="syntax" className="pt-3 pb-0.7">
-    <TabsList>
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
         <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
         <TabsTrigger value="example">Exemple</TabsTrigger>
-      </TabsList>
-      <TabsContent value="syntax">
+        </TabsList>
+        <TabsContent value="syntax">
         ```plaintext
-        $reactrole remove <message_id>, <reaction>
+        ,reactionrole remove (message link) (emoji)
         ```
-      </TabsContent>
-      <TabsContent value="example">
+        </TabsContent>
+        <TabsContent value="example">
         ```plaintext
-        $reactrole remove 1390404101707268337, ✅ 
+        ,reactionrole remove .../channels/... ✅
         ```
-      </TabsContent>
+        </TabsContent>
     </Tabs>
 
-To remove all reactions from a message, run : 
+## Remove all reaction roles from a message
 
-```plaintext
-$reactrole remove all
-```
+To remove all reaction roles from a message, you can use the `reactionrole removeall` command.
 
-<Note type="warning">
-    This action will remove every reactions in the message. 
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,reactionrole removeall (message link)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,reactionrole removeall .../channels/...
+        ```
+        </TabsContent>
+    </Tabs>
+
+## Remove all reaction roles from the server
+
+To remove all reaction roles from the server, you can use the `reactionrole clear` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,reactionrole clear
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,reactionrole clear
+        ```
+        </TabsContent>
+    </Tabs>
+
+<Note type="danger">
+  This command will remove all reaction roles from the server and delete all
+  reaction role messages. **This can't be undone.**
 </Note>
-

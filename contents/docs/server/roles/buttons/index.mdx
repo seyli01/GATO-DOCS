@@ -1,0 +1,100 @@
+---
+title: Button Roles
+description: Allow your members to assign themselves roles by clicking on a button.
+---
+
+## What are button roles?
+
+Button roles are roles that are assigned to members
+when they click a button on an existing message or embed.
+They can be useful for letting members choose unique roles or as a way to verify themselves.
+
+## Creating a button role
+
+You can create multiple button roles for a single message.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,buttonrole add (message link) (role) (style) (emoji) (label)
+        // Available styles: "green," "blurple," "gray," or "red."
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,buttonrole add .../channels/... Verified green ✅ Verify
+        ```
+        </TabsContent>
+    </Tabs>
+
+## Remove a button role
+
+You can remove a button role by using the `,buttonrole remove` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,buttonrole remove (message link) (button number)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,buttonrole remove .../channels/... 1
+        ```
+        </TabsContent>
+    </Tabs>
+
+### Removing all button roles from a message
+
+You can remove all button roles from a message by using the `,buttonrole removeall` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,buttonrole removeall (message link)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,buttonrole removeall .../channels/... 1
+        ```
+        </TabsContent>
+    </Tabs>
+
+### Remove all button roles from the server
+
+You can remove all button roles from the server by using the `,buttonrole clear` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,buttonrole clear
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,buttonrole clear
+        ```
+        </TabsContent>
+    </Tabs>
+
+<Note type="danger">
+  This command will remove all button roles from the server and delete all
+  button role messages. **This can't be undone.**
+</Note>
