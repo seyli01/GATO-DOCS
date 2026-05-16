@@ -64,6 +64,17 @@ export const ROUTES: EachRoute[] = [
     ],
   },
 
+  {
+    title: "Miscellanous",
+    href: "/miscellanous",
+    noLink: true,
+    items: [
+      { title: "Music", href: "/music", icon: "Music" },
+      { title: "Webhooks", href: "/webhooks", icon: "Webhook" },
+      { title: "Giveaways", href: "/giveaways", icon: "PartyPopper" },
+    ],
+  },
+
 /*
   {
     title: "Integration",

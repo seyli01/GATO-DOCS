@@ -60,8 +60,19 @@ export async function generateMetadata(props: PageProps) {
   if (!res) return {};
   const { title, description } = res;
   return {
-    title,
+    title: `${title} — Gato bot`,
     description,
+    openGraph: {
+      title: `${title} — Gato bot`,
+      description,
+      type: "article",
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${pathName}`,
+    },
+    twitter: {
+      card: "summary",
+      title: `${title} — Gato bot`,
+      description,
+    },
   };
 }
 

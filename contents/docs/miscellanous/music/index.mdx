@@ -1,0 +1,120 @@
+---
+title: Music
+description: Listen to music from a variety of sources inside voice channels.
+---
+
+Listen to music from a variety of sources inside voice channels.
+
+## How to setup ?
+
+You can setup a dj role using the `settings dj` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,settings dj (role)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,settings dj @DJ
+        ```
+        </TabsContent>
+    </Tabs>
+
+This will allow, in busy voice channels, members with the DJ role to join and play
+music without any extra permissions. Members without the dj roles won't be able to
+skip or stop the music.
+
+## Music Features
+
+The bot default source is youtube, you can however play from different source using a link.
+We recommand sticking with youtube, as other sources might not work properly, and youtube has most of
+the songs and videos you might want to listen to.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,play (song name)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,play Yeat - Tonka
+        ```
+        </TabsContent>
+    </Tabs>
+
+### Controlling the player
+
+You have access to different commands to control the music player, here are the main ones.
+
+| Command                            | Description                                                                                                                   |
+| :--------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- |
+| **disconnect**                     | Stop music playback, clear the queue, and make the bot leave the voice channel.                                               |
+| **skip**                           | Skip the current track. If multiple people are in the voice channel, a vote-skip is started unless the user is a DJ or Admin. |
+| **pause**                          | Pause the current music playback.                                                                                             |
+| **resume**                         | Resume playback of a paused track.                                                                                            |
+| **queue**                          | Display the list of upcoming tracks. Includes the currently playing track and requester info.                                 |
+| **queue remove \<pos\>**           | Remove a specific track from the queue at the given position.                                                                 |
+| **queue move \<from\> \<to\>**     | Move a track from one position in the queue to another.                                                                       |
+| **queue empty**                    | Completely clear all tracks from the queue.                                                                                   |
+| **queue shuffle**                  | Randomize the order of tracks in the queue.                                                                                   |
+| **volume \<0-100\>**               | Set the music volume.                                                                                                         |
+| **repeat \<off\|current\|queue\>** | Set the repeat mode. 'current' repeats the same song, 'queue' repeats the whole list.                                         |
+| **fastforward \<duration\>**       | Skip forward in the current song (e.g., 30s, 1m).                                                                             |
+| **rewind \<duration\>**            | Skip backward in the current song (e.g., 30s, 1m).                                                                            |
+
+To control the queue, you'll need to enter the track position, which you can get using the **queue** command
+and its subcommands.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,queue remove <position>
+        ,queue move <from> <to>
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,queue remove 1
+        ,queue move 1 2
+        ```
+        </TabsContent>
+    </Tabs>
+
+## Music Filters
+
+You can use an equalizer preset to adjust how the audio sounds.
+
+| Command              | Description                                                                 |
+| :------------------- | :-------------------------------------------------------------------------- |
+| **preset soft**      | Cuts high and mid frequencies, allowing only low frequencies                |
+| **preset 8d**        | Creates a stereo-like panning effect, rotating audio for immersive sound    |
+| **preset chipmunk**  | Accelerates track playback to produce a high-pitched, chipmunk-like sound   |
+| **preset boost**     | Enhances track with heightened bass and highs for a lively, energetic feel  |
+| **preset vaporwave** | Slows track playback for nostalgic and vintage half-speed effect            |
+| **preset vibrato**   | Introduces a wavering pitch effect for dynamic tone                         |
+| **preset piano**     | Enhances mid and high tones for standout piano-based tracks                 |
+| **preset metal**     | Amplifies midrange for a fuller, concert-like sound, ideal for metal tracks |
+| **preset flat**      | Represents a neutral EQ setting with default levels across the board        |
+| **preset karaoke**   | Filters out vocals from the track, leaving only the instrumental            |
+| **preset nightcore** | Accelerates track playback for nightcore-style music                        |
+
+## Music Sources
+
+- Youtube
+- Youtube Music
+- Soundcloud

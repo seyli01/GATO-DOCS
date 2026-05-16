@@ -1,0 +1,100 @@
+---
+title: Webhooks
+description: Relay messages through a webhook with a custom username and avatar.
+---
+
+Relay messages through a webhook with a custom username and avatar.
+
+## Whats a webhook ?
+
+A webhook is a way to post a message with a custom username and avatar to a channel.
+
+## Create a webhook
+
+You can create a webhook by using the `webhook create` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,webhook create (name) [channel]
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,webhook create webhook #general
+        ```
+        </TabsContent>
+    </Tabs>
+
+<Note>
+  The channel is optional. If you don't specify it, the webhook will be created
+  in the current channel.
+</Note>
+
+## Configure a webhook
+
+To configure a webhook, you'll need to use discord webhook
+features, going to server settings, then webhook. You can edit the name, the channel, and the avatar.
+We didn't add a command to configure a webhook, because it is not necessary and add unneccessary complexity.
+
+## Sending a message with a webhook
+
+You can send a message with a webhook by using the `webhook send` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,webhook send (webhook_code) (message) [--add (embed code)]
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,webhook send 124E4C Hello world --add {title: "hello", description: "world"}
+        ```
+        </TabsContent>
+    </Tabs>
+
+<Note>
+  To find the webhook code, you can use the `webhook list` command, or remember
+  it from it creation.
+</Note>
+
+## Edit a webhook
+
+You can edit a webhook by using the `webhook edit` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,webhook edit (webhook_code) (message link) [(new message)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,webhook edit 124E4C /.../channels/.../1234567890123456789 hey there
+        ```
+        </TabsContent>
+    </Tabs>
+
+## More about webhooks
+
+Here are the remaining webhook commands, and all of them except `webhook list` require a webhook code :
+
+| Command    | Description                                                                                                |
+| :--------- | :--------------------------------------------------------------------------------------------------------- |
+| **delete** | Permanently delete a webhook using its identifier.                                                         |
+| **list**   | List all webhooks in the server that were created or are managed by the bot, showing their IDs and owners. |
+| **lock**   | Restrict the webhook so only the creator or administrators can use it to send messages.                    |
+| **unlock** | Remove the lock from a webhook, allowing authorized users with 'Manage Webhooks' to use it.                |

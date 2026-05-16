@@ -1,0 +1,149 @@
+---
+title: Giveaways
+description: Easily create events where members can win prizes.
+---
+
+Easily create events where members can win prizes.
+
+## How to start a giveaway ?
+
+You can easily start a giveaway with the `giveaway start` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,giveaway start (duration) (number of winners) (prize)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,giveaway start 1d 1 Nitro
+        ```
+        </TabsContent>
+    </Tabs>
+
+<Note>
+  The number of winner is **optional**. If you don't specify it, the bot will
+  choose 1 winner.
+</Note>
+
+## Edit the informations of a giveaway
+
+You can change the details of a giveaway using the `giveaway edit` command.
+Here are all the options available:
+
+| Subcommand             | Description                                                                          |
+| :--------------------- | :----------------------------------------------------------------------------------- |
+| **edit prize**         | Update the prize being given away.                                                   |
+| **edit winners**       | Change the number of winners for the giveaway.                                       |
+| **edit duration**      | Extend the end time of the giveaway (e.g., extend by 1h).                            |
+| **edit description**   | Change or add a custom description to the giveaway embed.                            |
+| **edit color**         | Change the sidebar color of the giveaway embed.                                      |
+| **edit image**         | Set or update the large image at the bottom of the embed.                            |
+| **edit thumbnail**     | Set or update the small thumbnail in the corner of the embed.                        |
+| **edit host**          | Change the user who is hosting the giveaway.                                         |
+| **edit roles**         | Set the role(s) given to winners (only one currently supported via this subcommand). |
+| **edit requiredroles** | Manage roles required to participate in the giveaway.                                |
+| **edit age**           | Set the minimum account age in days required to enter.                               |
+| **edit stay**          | Set the minimum number of days a user must have been in the server to enter.         |
+| **edit minlevel**      | Set the minimum level required to enter (requires leveling system).                  |
+| **edit maxlevel**      | Set the maximum level allowed to enter (requires leveling system).                   |
+
+You need of course to specify the giveaway message link, like below :
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,giveaway edit (subcommand) (giveaway message link) (value)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,giveaway edit prize /.../channels/.../Nitro
+        ```
+        </TabsContent>
+    </Tabs>
+
+## End a giveaway
+
+You can end a giveaway using the `giveaway end` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,giveaway end (giveaway message link)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,giveaway end /.../channels/...
+        ```
+        </TabsContent>
+    </Tabs>
+
+## Reroll a giveaway
+
+In case of a technical issue, or simply you want to reroll a giveaway, you can use the `giveaway reroll`
+command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,giveaway reroll (giveaway message link)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,giveaway reroll /.../channels/.../1234567890123456789
+        ```
+        </TabsContent>
+    </Tabs>
+
+## Cancel a giveaway
+
+You can cancel a giveaway using the `giveaway cancel` command.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntax</TabsTrigger>
+        <TabsTrigger value="example">Example</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,giveaway cancel (giveaway message link)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,giveaway cancel /.../channels/.../1234567890123456789
+        ```
+        </TabsContent>
+    </Tabs>
+
+This will stop the giveaway and won't pick winners. All related data will also be deleted.
+
+## List giveaways
+
+You can list all the giveaways in the server using the `giveaway list` command.
+
+```plaintext
+,giveaway list
+```
+
+This will show you all the active giveaways in the server and ended ones.

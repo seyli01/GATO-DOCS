@@ -21,7 +21,7 @@ const monoFont = Space_Mono({
 
 export const metadata: Metadata = {
   title: "Gato bot - Documentation",
-  metadataBase: new URL("https://gato.bot/"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
   description:
     "Documentation officielle pour le bot Gato : modération, rôles, intégrations et outils pour votre serveur Discord.",
 };
