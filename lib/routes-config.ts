@@ -59,10 +59,12 @@ export const ROUTES: EachRoute[] = [
           { title: "Button Roles", href: "/buttons"}
         ],
       },
+      { title: "Starboard", href: "/starboard", icon: "Star"},
       { title: "Alias", href: "/alias", icon: "Command"},
       { title: "VoiceMaster", href: "/voicemaster", icon: "Radio"},
       { title: "Leveling", href: "/levels", icon: "Trophy"},
       { title: "Bump Reminders", href: "/bump", icon: "Bell"},
+      /*{ title: "Reactions", href: "/reactions", icon: "Smile"}*/
       { title: "Logging", href: "/logging", icon: "FileText"},
     ],
   },

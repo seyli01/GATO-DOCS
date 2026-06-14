@@ -1,0 +1,148 @@
+---
+title: Starboard
+description: Allow members to repost interesting messages to a starboard channel.
+---
+
+## What is starboard?
+
+The starboard is a channel where members can
+react to messages and after a certain number of reactions, the message will be reposted to the starboard channel.
+
+<Note type="info">
+  You can create two starboards, both starboard and clownboard use the same
+  structure.
+</Note>
+
+## Getting started
+
+Before you run any commands, it’s important to use the starboard unlock command.
+Otherwise, messages will not be reposted to the starboard channel.
+You can use `starboard lock` to temporarily stop messages from being reposted.
+
+## Setting the starboard channel
+
+You can use the `starboard set` command to set which channel
+messages will be reposted to.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,starboard set #channel
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,starboard set #starboard
+        ```
+        </TabsContent>
+    </Tabs>
+
+## Ignoring channels, roles, or members
+
+You can ignore certain channels, roles,
+or members within your server to prevent their messages from appearing on the starboard.
+These commands work as toggles, meaning that if you run the command again,
+it will unignore the channel, role, or member.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,starboard ignore #channel or @role or @member
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,starboard ignore #staff
+        ,starboard ignore @Admin
+        ,starboard ignore @JohnDoe
+        ```
+        </TabsContent>
+    </Tabs>
+
+## Customizing the starboard
+
+### Changing the reaction threshold
+
+You can change the minimum number of reactions a message needs to be reposted.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,starboard threshold (number)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,starboard threshold 3
+        ```
+        </TabsContent>
+    </Tabs>
+
+### Changing the emoji to watch for
+
+You can set the emoji that members need to react with for a message to be reposted.
+Note that the default emoji is "⭐" for starboard and "🤡" for clownboard.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,starboard emoji (emoji)
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,starboard emoji 🟢
+        ```
+        </TabsContent>
+    </Tabs>
+
+### Allowing self-starring messages
+
+You can allow members to star their own messages with the starboard selfstar command.
+This command is a toggle.
+
+    <Tabs defaultValue="syntax" className="pt-3 pb-0.7">
+        <TabsList>
+        <TabsTrigger value="syntax">Syntaxe</TabsTrigger>
+        <TabsTrigger value="example">Exemple</TabsTrigger>
+        </TabsList>
+        <TabsContent value="syntax">
+        ```plaintext
+        ,starboard selfstar
+        ```
+        </TabsContent>
+        <TabsContent value="example">
+        ```plaintext
+        ,starboard selfstar
+        ```
+        </TabsContent>
+    </Tabs>
+
+## Go beyond
+
+The color of the embed, the embed timestamp, message jump url or the toggling of the attachments
+can be edited in the starboard commands. All of the commands expect the color command is a toggle, the color needs to
+be a hex code starting with #.
+
+| Command               | Description                   |
+| --------------------- | ----------------------------- |
+| starboard color       | Change the color of the embed |
+| starboard timestamp   | Toggle the embed timestamp    |
+| starboard jump        | Toggle the message jump url   |
+| starboard attachments | Toggle the attachments        |
